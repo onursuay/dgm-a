@@ -66,9 +66,9 @@ export default function Footer() {
       {/* Main footer content */}
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10 pt-12 pb-8">
         {/* Top row: Brand + newsletter */}
-        <div className="flex flex-col lg:flex-row justify-between gap-10 mb-16 pb-10 border-b border-blue-900/15">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16 pb-10 border-b border-blue-900/15">
           {/* Brand */}
-          <div className="lg:w-1/3">
+          <div>
             {/* Logo */}
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center"
@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div className="lg:w-96">
+          <div className="lg:flex lg:flex-col lg:justify-center">
             <h4 className="text-base font-bold text-[#e8f0ff] mb-2">Stay Informed</h4>
             <p className="text-xs text-[#3a5a7a] mb-4">
               Receive DNF updates, demonstration schedules and fire safety insights.
@@ -170,20 +170,25 @@ export default function Footer() {
 
           {/* Center: Social */}
           <div className="flex items-center gap-3">
-            {[
-              { label: "LinkedIn", icon: "in" },
-              { label: "X", icon: "X" },
-              { label: "YouTube", icon: "▶" },
-            ].map((s) => (
-              <a
-                key={s.label}
-                href="#"
-                className="w-8 h-8 rounded-full border border-blue-900/20 flex items-center justify-center text-[10px] text-[#3a5a7a] hover:text-[#38b6ff] hover:border-blue-700/40 transition-all"
-                aria-label={s.label}
-              >
-                {s.icon}
-              </a>
-            ))}
+            <a href="#" aria-label="LinkedIn"
+              className="w-8 h-8 rounded-full border border-blue-900/20 flex items-center justify-center text-[#3a5a7a] hover:text-[#38b6ff] hover:border-blue-700/40 transition-all">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="X (Twitter)"
+              className="w-8 h-8 rounded-full border border-blue-900/20 flex items-center justify-center text-[#3a5a7a] hover:text-[#38b6ff] hover:border-blue-700/40 transition-all">
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.26 5.632L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube"
+              className="w-8 h-8 rounded-full border border-blue-900/20 flex items-center justify-center text-[#3a5a7a] hover:text-[#38b6ff] hover:border-blue-700/40 transition-all">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.7-.8-2-.9C17 5 12 5 12 5s-5 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.2.8C6.6 19 12 19 12 19s5 0 7-.1c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM10 14.5v-5l5.5 2.5-5.5 2.5z"/>
+              </svg>
+            </a>
           </div>
 
           {/* Right: Language */}

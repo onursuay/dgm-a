@@ -53,31 +53,26 @@ export default function HeroSection() {
       }} />
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 text-center w-full">
-        {/* Status bar */}
-        <div className="inline-flex items-center gap-3 mb-8 border border-blue-800/40 rounded-full px-5 py-2 bg-[#020c1b]/80" style={{ backdropFilter: "blur(8px)" }}>
-          <span className="w-2 h-2 rounded-full bg-[#38b6ff] animate-pulse-blue block" />
-          <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#38b6ff]">Germany-Based Fire Safety Technology</span>
-          <span className="w-2 h-2 rounded-full bg-[#38b6ff] animate-pulse-blue block" />
-        </div>
 
         {/* Headline */}
         <h1 className="font-black leading-[1.05] tracking-tight mb-8">
-          <span className="block text-4xl sm:text-5xl lg:text-6xl text-[#e8f0ff] animate-fade-in-up" style={{ animationDelay: "0.1s" }}>FIRE SPREADS</span>
-          <span className="block text-4xl sm:text-5xl lg:text-6xl text-[#e8f0ff] animate-fade-in-up" style={{ animationDelay: "0.3s" }}>IN SECONDS.</span>
+          <span className="block text-4xl sm:text-5xl lg:text-6xl text-[#e8f0ff] animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+            FIRE SPREADS IN SECONDS.
+          </span>
           <span className="block text-3xl sm:text-4xl lg:text-5xl mt-3 animate-fade-in-up" style={{
             background: "linear-gradient(90deg, #38b6ff 0%, #1a6fff 50%, #60c8ff 100%)",
             WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-            animationDelay: "0.55s"
+            animationDelay: "0.3s"
           }}>DNF BUYS TIME.</span>
         </h1>
 
-        <p className="text-lg text-[#6688aa] max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg text-[#6688aa] max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.55s" }}>
           The world's first proactive fire spread retardant — eco-certified, deployable at scale,
           proven across forests, cities, industrial zones and critical infrastructure.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-wrap gap-4 justify-center mb-16">
+        <div className="flex flex-wrap gap-4 justify-center mb-16 animate-fade-in-up" style={{ animationDelay: "0.75s" }}>
           <a href="#technology" className="btn-ice px-10 py-4 rounded-full text-base font-bold">Explore Technology</a>
           <a href="#demonstrations" className="btn-outline-ice px-10 py-4 rounded-full text-base">Watch Live Demo</a>
           <a href="https://wa.me/491234567890" target="_blank" rel="noopener noreferrer"
