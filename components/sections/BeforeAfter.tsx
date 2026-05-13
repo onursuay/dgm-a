@@ -54,18 +54,18 @@ export default function BeforeAfter() {
   const scenario = scenarios[active];
 
   return (
-    <section className="relative py-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #080808 0%, #0a0400 50%, #080808 100%)" }}>
+    <section className="relative py-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #030810 0%, #0a0400 50%, #030810 100%)" }}>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         {/* Header */}
         <div className="text-center mb-6">
-          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#ff6b00] mb-6">
+          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">
             Before & After
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f5f0eb] leading-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight mb-4">
             The DNF Difference<br />
             <span className="text-fire-gradient">in Real Scenarios.</span>
           </h2>
-          <p className="text-[#a8a0a0] max-w-xl mx-auto">
+          <p className="text-[#6688aa] max-w-xl mx-auto">
             Explore how DNF changes outcomes across different environments.
           </p>
         </div>
@@ -78,8 +78,8 @@ export default function BeforeAfter() {
               onClick={() => setActive(i)}
               className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
                 active === i
-                  ? "bg-gradient-to-r from-orange-600 to-red-700 text-white shadow-lg shadow-orange-900/30"
-                  : "border border-orange-900/20 text-[#a8a0a0] hover:border-orange-700/40 hover:text-[#f5f0eb]"
+                  ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-900/30"
+                  : "border border-blue-900/20 text-[#6688aa] hover:border-blue-700/40 hover:text-[#e8f0ff]"
               }`}
             >
               {s.label}
@@ -92,7 +92,7 @@ export default function BeforeAfter() {
           {/* Before */}
           <div className="rounded-2xl overflow-hidden border border-red-900/30">
             {/* Visual bar */}
-            <div className="h-3 bg-gradient-to-r from-red-900 via-red-600 to-orange-600 animate-fire-pulse" />
+            <div className="h-3 bg-gradient-to-r from-red-900 via-red-600 to-blue-600 animate-fire-pulse" />
             <div className="p-8 bg-[#130500]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 rounded-full bg-red-900/30 border border-red-700/40 flex items-center justify-center">
@@ -103,12 +103,12 @@ export default function BeforeAfter() {
 
               <div className="text-center mb-6 p-4 border border-red-900/20 rounded-xl bg-red-950/20">
                 <div className="text-3xl font-black text-red-500">{scenario.before.stat}</div>
-                <div className="text-xs text-[#6a6060] mt-1">{scenario.before.statLabel}</div>
+                <div className="text-xs text-[#3a5a7a] mt-1">{scenario.before.statLabel}</div>
               </div>
 
               <ul className="space-y-3">
                 {scenario.before.points.map((p, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-[#a8a0a0]">
+                  <li key={i} className="flex items-start gap-3 text-sm text-[#6688aa]">
                     <span className="text-red-600 mt-0.5 shrink-0">●</span>
                     {p}
                   </li>
@@ -118,26 +118,26 @@ export default function BeforeAfter() {
           </div>
 
           {/* After */}
-          <div className="rounded-2xl overflow-hidden border border-orange-900/30">
+          <div className="rounded-2xl overflow-hidden border border-blue-900/30">
             {/* Visual bar */}
-            <div className="h-3 bg-gradient-to-r from-orange-600 via-amber-500 to-yellow-600 animate-glow-pulse" />
+            <div className="h-3 bg-gradient-to-r from-blue-600 via-amber-500 to-yellow-600 animate-glow-pulse" />
             <div className="p-8 bg-[#0d0800]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-full bg-orange-900/30 border border-orange-700/40 flex items-center justify-center">
-                  <span className="text-[#ff9500] text-lg">✓</span>
+                <div className="w-8 h-8 rounded-full bg-blue-900/30 border border-blue-700/40 flex items-center justify-center">
+                  <span className="text-[#38b6ff] text-lg">✓</span>
                 </div>
-                <h3 className="text-xl font-bold text-[#ff9500]">{scenario.after.title}</h3>
+                <h3 className="text-xl font-bold text-[#38b6ff]">{scenario.after.title}</h3>
               </div>
 
-              <div className="text-center mb-6 p-4 border border-orange-900/20 rounded-xl bg-orange-950/10">
+              <div className="text-center mb-6 p-4 border border-blue-900/20 rounded-xl bg-blue-950/10">
                 <div className="text-3xl font-black text-fire-gradient">{scenario.after.stat}</div>
-                <div className="text-xs text-[#6a6060] mt-1">{scenario.after.statLabel}</div>
+                <div className="text-xs text-[#3a5a7a] mt-1">{scenario.after.statLabel}</div>
               </div>
 
               <ul className="space-y-3">
                 {scenario.after.points.map((p, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-[#a8a0a0]">
-                    <span className="text-[#ff9500] mt-0.5 shrink-0">●</span>
+                  <li key={i} className="flex items-start gap-3 text-sm text-[#6688aa]">
+                    <span className="text-[#38b6ff] mt-0.5 shrink-0">●</span>
                     {p}
                   </li>
                 ))}
@@ -147,7 +147,7 @@ export default function BeforeAfter() {
         </div>
 
         {/* Central note */}
-        <div className="mt-8 text-center text-sm text-[#6a6060]">
+        <div className="mt-8 text-center text-sm text-[#3a5a7a]">
           Data based on laboratory testing and field trials. Results vary by surface type, application coverage and environmental conditions.
         </div>
       </div>

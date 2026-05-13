@@ -75,25 +75,25 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-10 overflow-hidden" style={{ background: "#080808" }}>
+    <section className="relative py-10 overflow-hidden" style={{ background: "#030810" }}>
       {/* Diagonal grid pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          backgroundImage: "linear-gradient(rgba(255,107,0,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,107,0,1) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(26,111,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(26,111,255,1) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="text-center mb-10">
-          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#ff6b00] mb-6">
+          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">
             How DNF Works
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f5f0eb] leading-tight mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight mb-6">
             Six Steps.<br />
             <span className="text-fire-gradient">One Life-Saving Mission.</span>
           </h2>
-          <p className="text-[#a8a0a0] max-w-xl mx-auto text-lg">
+          <p className="text-[#6688aa] max-w-xl mx-auto text-lg">
             From application to protection — here is how DNF transforms the fire safety equation.
           </p>
         </div>
@@ -101,38 +101,38 @@ export default function HowItWorks() {
         {/* Steps */}
         <div className="relative">
           {/* Connecting line desktop */}
-          <div className="hidden lg:block absolute left-[11.5%] right-[11.5%] top-10 h-px bg-gradient-to-r from-transparent via-orange-900/30 to-transparent" style={{ top: "44px" }} />
+          <div className="hidden lg:block absolute left-[11.5%] right-[11.5%] top-10 h-px bg-gradient-to-r from-transparent via-blue-900/30 to-transparent" style={{ top: "44px" }} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {steps.map((step, i) => (
               <div key={i} className="relative group">
                 {/* Card */}
-                <div className="card-premium rounded-2xl p-7 h-full border border-orange-900/10 hover:border-orange-700/30 transition-all duration-500">
+                <div className="card-premium rounded-2xl p-7 h-full border border-blue-900/10 hover:border-blue-700/30 transition-all duration-500">
                   {/* Phase number & icon row */}
                   <div className="flex items-start justify-between mb-6">
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-[#ff6b00] shrink-0"
-                      style={{ background: "rgba(255,107,0,0.08)", border: "1px solid rgba(255,107,0,0.15)" }}>
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-[#1a6fff] shrink-0"
+                      style={{ background: "rgba(26,111,255,0.08)", border: "1px solid rgba(26,111,255,0.15)" }}>
                       {step.icon}
                     </div>
-                    <span className="text-4xl font-black text-[#ff6b00] opacity-20 leading-none">{step.phase}</span>
+                    <span className="text-4xl font-black text-[#1a6fff] opacity-20 leading-none">{step.phase}</span>
                   </div>
 
-                  <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#ff6b00] mb-2 opacity-70">
+                  <div className="text-xs font-bold tracking-[0.2em] uppercase text-[#1a6fff] mb-2 opacity-70">
                     {step.sub}
                   </div>
-                  <h3 className="text-xl font-bold text-[#f5f0eb] mb-3">{step.title}</h3>
-                  <p className="text-sm text-[#a8a0a0] leading-relaxed mb-4">{step.desc}</p>
+                  <h3 className="text-xl font-bold text-[#e8f0ff] mb-3">{step.title}</h3>
+                  <p className="text-sm text-[#6688aa] leading-relaxed mb-4">{step.desc}</p>
 
                   {/* Detail tag */}
-                  <div className="border-t border-orange-900/15 pt-4">
-                    <p className="text-xs text-[#6a6060] italic">{step.detail}</p>
+                  <div className="border-t border-blue-900/15 pt-4">
+                    <p className="text-xs text-[#3a5a7a] italic">{step.detail}</p>
                   </div>
                 </div>
 
                 {/* Arrow between (desktop only, not last in row) */}
                 {i % 3 !== 2 && i !== steps.length - 1 && (
                   <div className="hidden lg:block absolute right-0 top-10 translate-x-4 z-10">
-                    <svg className="w-6 h-6 text-orange-900/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-blue-900/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>

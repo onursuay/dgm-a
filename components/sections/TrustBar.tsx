@@ -49,7 +49,7 @@ const trustItems = [
 
 export default function TrustBar() {
   return (
-    <section className="relative py-6 overflow-hidden" style={{ background: "#0d0d0d", borderTop: "1px solid rgba(255,107,0,0.1)", borderBottom: "1px solid rgba(255,107,0,0.1)" }}>
+    <section className="relative py-6 overflow-hidden" style={{ background: "#050c18", borderTop: "1px solid rgba(26,111,255,0.1)", borderBottom: "1px solid rgba(26,111,255,0.1)" }}>
       {/* Ticker */}
       <div className="flex overflow-hidden">
         <div className="flex animate-ticker whitespace-nowrap" style={{ gap: 0 }}>
@@ -58,12 +58,12 @@ export default function TrustBar() {
               key={i}
               className="flex items-center gap-4 px-12 py-4 shrink-0"
             >
-              <div className="text-[#ff6b00] opacity-70">{item.icon}</div>
+              <div className="text-[#1a6fff] opacity-70">{item.icon}</div>
               <div>
-                <div className="text-sm font-bold text-[#f5f0eb] tracking-wide">{item.label}</div>
-                <div className="text-xs text-[#6a6060]">{item.sub}</div>
+                <div className="text-sm font-bold text-[#e8f0ff] tracking-wide">{item.label}</div>
+                <div className="text-xs text-[#3a5a7a]">{item.sub}</div>
               </div>
-              <div className="ml-12 w-px h-8 bg-orange-900/40 shrink-0" />
+              <div className="ml-12 w-px h-8 bg-blue-900/40 shrink-0" />
             </div>
           ))}
         </div>

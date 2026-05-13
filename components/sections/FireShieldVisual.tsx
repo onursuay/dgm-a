@@ -2,7 +2,7 @@ export default function FireShieldVisual() {
   return (
     <section
       className="relative py-0 overflow-hidden min-h-[80vh] flex items-center"
-      style={{ background: "#080808" }}
+      style={{ background: "#030810" }}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
         {/* Left: Fire Threat Side */}
@@ -15,7 +15,7 @@ export default function FireShieldVisual() {
           {/* Fire glow background */}
           <div className="absolute inset-0"
             style={{
-              background: "radial-gradient(ellipse 80% 70% at 50% 80%, rgba(200,40,0,0.4) 0%, rgba(255,107,0,0.1) 50%, transparent 70%)",
+              background: "radial-gradient(ellipse 80% 70% at 50% 80%, rgba(200,40,0,0.4) 0%, rgba(26,111,255,0.1) 50%, transparent 70%)",
             }} />
 
           {/* Abstract flame shapes */}
@@ -23,13 +23,13 @@ export default function FireShieldVisual() {
             <svg viewBox="0 0 600 320" className="w-full h-full" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="flame1" x1="0%" y1="100%" x2="0%" y2="0%">
-                  <stop offset="0%" stopColor="#cc2200" stopOpacity="0.8" />
-                  <stop offset="60%" stopColor="#ff6b00" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="#ff9500" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#0044cc" stopOpacity="0.8" />
+                  <stop offset="60%" stopColor="#1a6fff" stopOpacity="0.5" />
+                  <stop offset="100%" stopColor="#38b6ff" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient id="flame2" x1="0%" y1="100%" x2="0%" y2="0%">
-                  <stop offset="0%" stopColor="#ff6b00" stopOpacity="0.6" />
-                  <stop offset="70%" stopColor="#ff9500" stopOpacity="0.3" />
+                  <stop offset="0%" stopColor="#1a6fff" stopOpacity="0.6" />
+                  <stop offset="70%" stopColor="#38b6ff" stopOpacity="0.3" />
                   <stop offset="100%" stopColor="#ffcc00" stopOpacity="0" />
                 </linearGradient>
               </defs>
@@ -45,7 +45,7 @@ export default function FireShieldVisual() {
                   cx={50 + i * 50}
                   cy={280 - (i % 4) * 60}
                   r={2 + (i % 3)}
-                  fill={i % 2 === 0 ? "#ff9500" : "#ff6b00"}
+                  fill={i % 2 === 0 ? "#38b6ff" : "#1a6fff"}
                   opacity={0.6 + (i % 3) * 0.1}
                   className="animate-ember-float"
                   style={{ animationDelay: `${i * 0.3}s` }}
@@ -57,11 +57,11 @@ export default function FireShieldVisual() {
           {/* Content */}
           <div className="relative z-10 text-center max-w-sm">
             <div className="text-6xl mb-6">🔥</div>
-            <h3 className="text-3xl font-black text-[#f5f0eb] mb-4 leading-tight">
+            <h3 className="text-3xl font-black text-[#e8f0ff] mb-4 leading-tight">
               Unprotected.<br />
               <span className="text-red-500">Exposed.</span>
             </h3>
-            <p className="text-[#a8a0a0] text-base leading-relaxed">
+            <p className="text-[#6688aa] text-base leading-relaxed">
               Without intervention, fire spreads at its natural rate — consuming surface after surface, building heat, denying escape, and overwhelming response teams.
             </p>
 
@@ -69,11 +69,11 @@ export default function FireShieldVisual() {
             <div className="mt-8 grid grid-cols-2 gap-4">
               <div className="border border-red-900/30 rounded-xl p-4 bg-red-950/20">
                 <div className="text-2xl font-black text-red-500">~3m²/s</div>
-                <div className="text-xs text-[#6a6060] mt-1">Spread speed (untreated)</div>
+                <div className="text-xs text-[#3a5a7a] mt-1">Spread speed (untreated)</div>
               </div>
               <div className="border border-red-900/30 rounded-xl p-4 bg-red-950/20">
                 <div className="text-2xl font-black text-red-500">72 sec</div>
-                <div className="text-xs text-[#6a6060] mt-1">To flashover</div>
+                <div className="text-xs text-[#3a5a7a] mt-1">To flashover</div>
               </div>
             </div>
           </div>
@@ -82,9 +82,9 @@ export default function FireShieldVisual() {
         {/* Diagonal divider */}
         <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-16 -translate-x-1/2 z-20 pointer-events-none">
           <div className="relative h-full flex items-center justify-center">
-            <div className="absolute inset-y-0 w-px left-1/2 bg-gradient-to-b from-transparent via-orange-600/60 to-transparent" />
-            <div className="relative z-10 bg-[#080808] border border-orange-600/40 rounded-full w-14 h-14 flex items-center justify-center">
-              <svg className="w-6 h-6 text-[#ff6b00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="absolute inset-y-0 w-px left-1/2 bg-gradient-to-b from-transparent via-blue-600/60 to-transparent" />
+            <div className="relative z-10 bg-[#030810] border border-blue-600/40 rounded-full w-14 h-14 flex items-center justify-center">
+              <svg className="w-6 h-6 text-[#1a6fff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
@@ -95,52 +95,52 @@ export default function FireShieldVisual() {
         <div
           className="relative flex flex-col justify-center items-center p-16 overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #0a0a0a 0%, #0f0f0f 50%, #080808 100%)",
+            background: "linear-gradient(135deg, #03080f 0%, #0f0f0f 50%, #030810 100%)",
           }}
         >
           {/* Shield glow */}
           <div className="absolute inset-0 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,107,0,0.06) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(26,111,255,0.06) 0%, transparent 70%)",
             }} />
 
           {/* Abstract shield visual */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10">
             <svg className="w-96 h-96 animate-shield-pulse" viewBox="0 0 200 200" fill="none">
               <path d="M100 10 L170 40 L170 100 Q170 160 100 190 Q30 160 30 100 L30 40 Z"
-                stroke="rgba(255,107,0,0.8)" strokeWidth="1.5" fill="none" />
+                stroke="rgba(26,111,255,0.8)" strokeWidth="1.5" fill="none" />
               <path d="M100 30 L155 55 L155 100 Q155 148 100 172 Q45 148 45 100 L45 55 Z"
-                stroke="rgba(255,107,0,0.5)" strokeWidth="1" fill="none" />
+                stroke="rgba(26,111,255,0.5)" strokeWidth="1" fill="none" />
               <path d="M100 50 L140 68 L140 100 Q140 135 100 155 Q60 135 60 100 L60 68 Z"
-                stroke="rgba(255,107,0,0.3)" strokeWidth="0.8" fill="rgba(255,107,0,0.02)" />
+                stroke="rgba(26,111,255,0.3)" strokeWidth="0.8" fill="rgba(26,111,255,0.02)" />
             </svg>
           </div>
 
           {/* Content */}
           <div className="relative z-10 text-center max-w-sm">
             <div className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              style={{ background: "rgba(255,107,0,0.1)", border: "1px solid rgba(255,107,0,0.3)" }}>
-              <svg className="w-10 h-10 text-[#ff9500]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              style={{ background: "rgba(26,111,255,0.1)", border: "1px solid rgba(26,111,255,0.3)" }}>
+              <svg className="w-10 h-10 text-[#38b6ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
-            <h3 className="text-3xl font-black text-[#f5f0eb] mb-4 leading-tight">
+            <h3 className="text-3xl font-black text-[#e8f0ff] mb-4 leading-tight">
               DNF-Protected.<br />
               <span className="text-fire-gradient">Time Gained.</span>
             </h3>
-            <p className="text-[#a8a0a0] text-base leading-relaxed">
+            <p className="text-[#6688aa] text-base leading-relaxed">
               DNF-treated surfaces resist fire propagation. The thermal barrier holds. Response teams arrive with time to act. Lives and assets are preserved.
             </p>
 
             {/* Stats */}
             <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="border border-orange-900/30 rounded-xl p-4 bg-orange-950/10">
+              <div className="border border-blue-900/30 rounded-xl p-4 bg-blue-950/10">
                 <div className="text-2xl font-black text-fire-gradient">3× slower</div>
-                <div className="text-xs text-[#6a6060] mt-1">Fire spread on treated surfaces</div>
+                <div className="text-xs text-[#3a5a7a] mt-1">Fire spread on treated surfaces</div>
               </div>
-              <div className="border border-orange-900/30 rounded-xl p-4 bg-orange-950/10">
+              <div className="border border-blue-900/30 rounded-xl p-4 bg-blue-950/10">
                 <div className="text-2xl font-black text-fire-gradient">+7 min</div>
-                <div className="text-xs text-[#6a6060] mt-1">Emergency response window</div>
+                <div className="text-xs text-[#3a5a7a] mt-1">Emergency response window</div>
               </div>
             </div>
 

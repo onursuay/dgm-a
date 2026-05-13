@@ -36,49 +36,49 @@ export default function PartnershipSection() {
     <section
       id="partners"
       className="relative py-10 overflow-hidden"
-      style={{ background: "#080808" }}
+      style={{ background: "#030810" }}
     >
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
-          backgroundImage: "repeating-linear-gradient(45deg, #ff6b00 0, #ff6b00 1px, transparent 0, transparent 50%)",
+          backgroundImage: "repeating-linear-gradient(45deg, #1a6fff 0, #1a6fff 1px, transparent 0, transparent 50%)",
           backgroundSize: "20px 20px",
         }} />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="text-center mb-8">
-          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#ff6b00] mb-6">
+          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">
             Partnerships
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f5f0eb] leading-tight mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight mb-6">
             Build the Future of<br />
             <span className="text-fire-gradient">Fire Safety Together.</span>
           </h2>
-          <p className="text-[#a8a0a0] max-w-2xl mx-auto text-lg">
+          <p className="text-[#6688aa] max-w-2xl mx-auto text-lg">
             DNF grows through strategic partnerships with public authorities, emergency services, industry leaders and regional distributors. We are actively building our global network.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {partnerTypes.map((pt, i) => (
-            <div key={i} className="card-premium rounded-2xl p-8 border border-orange-900/10 hover:border-orange-700/25 transition-all duration-400 group">
+            <div key={i} className="card-premium rounded-2xl p-8 border border-blue-900/10 hover:border-blue-700/25 transition-all duration-400 group">
               <div className="flex items-start gap-5">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 text-[#ff6b00]"
-                  style={{ background: "rgba(255,107,0,0.08)", border: "1px solid rgba(255,107,0,0.15)" }}>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 text-[#1a6fff]"
+                  style={{ background: "rgba(26,111,255,0.08)", border: "1px solid rgba(26,111,255,0.15)" }}>
                   <pt.Icon className="w-8 h-8" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-[#f5f0eb] mb-2">{pt.title}</h3>
-                  <p className="text-sm text-[#a8a0a0] leading-relaxed mb-4">{pt.desc}</p>
+                  <h3 className="text-xl font-bold text-[#e8f0ff] mb-2">{pt.title}</h3>
+                  <p className="text-sm text-[#6688aa] leading-relaxed mb-4">{pt.desc}</p>
                   <ul className="space-y-1.5 mb-5">
                     {pt.benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-xs text-[#a8a0a0]">
-                        <span className="text-[#ff6b00] shrink-0">▸</span>
+                      <li key={b} className="flex items-center gap-2 text-xs text-[#6688aa]">
+                        <span className="text-[#1a6fff] shrink-0">▸</span>
                         {b}
                       </li>
                     ))}
                   </ul>
                   <a href="#contact"
-                    className="inline-block text-xs font-bold text-[#ff9500] border border-orange-700/30 rounded-full px-4 py-1.5 hover:bg-orange-950/30 transition-colors">
+                    className="inline-block text-xs font-bold text-[#38b6ff] border border-blue-700/30 rounded-full px-4 py-1.5 hover:bg-blue-950/30 transition-colors">
                     {pt.cta} →
                   </a>
                 </div>
@@ -87,18 +87,18 @@ export default function PartnershipSection() {
           ))}
         </div>
 
-        <div className="relative rounded-3xl overflow-hidden border border-orange-700/30 p-12 text-center"
-          style={{ background: "linear-gradient(135deg, #140800 0%, #1a0e00 50%, #140800 100%)" }}>
+        <div className="relative rounded-3xl overflow-hidden border border-blue-700/30 p-12 text-center"
+          style={{ background: "linear-gradient(135deg, #080f20 0%, #0a1535 50%, #080f20 100%)" }}>
           <div className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255,107,0,0.15) 0%, transparent 60%)" }} />
+            style={{ background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(26,111,255,0.15) 0%, transparent 60%)" }} />
           <div className="relative z-10">
-            <div className="w-16 h-16 mx-auto mb-4 text-[#ff9500]">
+            <div className="w-16 h-16 mx-auto mb-4 text-[#38b6ff]">
               <IconHandshake className="w-16 h-16" />
             </div>
-            <h3 className="text-3xl font-black text-[#f5f0eb] mb-4">
+            <h3 className="text-3xl font-black text-[#e8f0ff] mb-4">
               Become a DNF Partner
             </h3>
-            <p className="text-[#a8a0a0] max-w-xl mx-auto mb-8">
+            <p className="text-[#6688aa] max-w-xl mx-auto mb-8">
               We are seeking forward-thinking partners in fire safety, emergency management, municipal planning and distribution. If you share our mission — let&apos;s talk.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,34 +1,34 @@
 const timeline = [
-  { time: "0:00", label: "Ignition", desc: "Fire starts. Invisible in first seconds.", color: "#ff6b00", active: true },
-  { time: "0:30", label: "Initial Spread", desc: "Fire finds fuel. Spread accelerates rapidly.", color: "#cc2200", active: false },
-  { time: "1:30", label: "Alarm Triggered", desc: "Detection systems activate. Emergency call placed.", color: "#ff9500", active: false },
-  { time: "3:00", label: "Units Dispatched", desc: "Firefighters mobilize. First vehicles en route.", color: "#ff6b00", active: false },
-  { time: "5:00", label: "Critical Zone", desc: "Without intervention, fire reaches critical mass.", color: "#cc2200", active: false },
+  { time: "0:00", label: "Ignition", desc: "Fire starts. Invisible in first seconds.", color: "#1a6fff", active: true },
+  { time: "0:30", label: "Initial Spread", desc: "Fire finds fuel. Spread accelerates rapidly.", color: "#0044cc", active: false },
+  { time: "1:30", label: "Alarm Triggered", desc: "Detection systems activate. Emergency call placed.", color: "#38b6ff", active: false },
+  { time: "3:00", label: "Units Dispatched", desc: "Firefighters mobilize. First vehicles en route.", color: "#1a6fff", active: false },
+  { time: "5:00", label: "Critical Zone", desc: "Without intervention, fire reaches critical mass.", color: "#0044cc", active: false },
   { time: "+7 min", label: "With DNF", desc: "DNF-treated surfaces hold. Response window extended.", color: "#22c55e", active: false },
 ];
 
 export default function ResponseTime() {
   return (
-    <section className="relative py-10 overflow-hidden" style={{ background: "#0a0a0a" }}>
+    <section className="relative py-10 overflow-hidden" style={{ background: "#03080f" }}>
       {/* Side accent */}
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-orange-600/40 to-transparent" />
+      <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-600/40 to-transparent" />
 
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         {/* Two column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Copy */}
           <div>
-            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#ff6b00] mb-6">
+            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">
               The Response Time Problem
             </span>
-            <h2 className="text-4xl sm:text-5xl font-black text-[#f5f0eb] leading-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl font-black text-[#e8f0ff] leading-tight mb-6">
               Every Minute<br />
               <span className="text-fire-gradient">Matters.</span>
             </h2>
-            <p className="text-[#a8a0a0] text-lg leading-relaxed mb-8">
+            <p className="text-[#6688aa] text-lg leading-relaxed mb-8">
               The average fire department response time is 7–10 minutes. In that window, an untreated fire can consume an entire floor, a hectare of forest, or a warehouse of materials.
             </p>
-            <p className="text-[#a8a0a0] text-base leading-relaxed mb-8">
+            <p className="text-[#6688aa] text-base leading-relaxed mb-8">
               DNF technology slows fire propagation at the surface level — buying those critical minutes, enabling structured evacuation, preserving assets, and giving response teams the time they need to operate effectively.
             </p>
 
@@ -38,11 +38,11 @@ export default function ResponseTime() {
                 { num: "3×", unit: "", label: "Slower Spread with DNF" },
                 { num: "+7", unit: "min", label: "Extended Safety Window" },
               ].map((s) => (
-                <div key={s.label} className="border border-orange-900/20 rounded-xl p-4 bg-orange-950/5 text-center">
+                <div key={s.label} className="border border-blue-900/20 rounded-xl p-4 bg-blue-950/5 text-center">
                   <div className="text-2xl font-black text-fire-gradient">
                     {s.num}<span className="text-lg">{s.unit}</span>
                   </div>
-                  <div className="text-xs text-[#6a6060] mt-1 leading-tight">{s.label}</div>
+                  <div className="text-xs text-[#3a5a7a] mt-1 leading-tight">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -52,21 +52,21 @@ export default function ResponseTime() {
           <div className="relative">
             {/* Heat spread bar */}
             <div className="mb-8">
-              <div className="flex justify-between text-xs text-[#6a6060] mb-2">
+              <div className="flex justify-between text-xs text-[#3a5a7a] mb-2">
                 <span>Fire Spread (Untreated)</span>
                 <span className="text-red-500">Critical</span>
               </div>
-              <div className="relative h-3 rounded-full overflow-hidden bg-[#1a1a1a] border border-orange-900/20">
+              <div className="relative h-3 rounded-full overflow-hidden bg-[#1a1a1a] border border-blue-900/20">
                 <div
                   className="absolute left-0 top-0 h-full rounded-full animate-heat-wave"
                   style={{
                     width: "85%",
-                    background: "linear-gradient(90deg, #ff9500 0%, #ff6b00 40%, #cc2200 70%, #8b0000 100%)",
-                    boxShadow: "0 0 20px rgba(255,107,0,0.4)",
+                    background: "linear-gradient(90deg, #38b6ff 0%, #1a6fff 40%, #0044cc 70%, #8b0000 100%)",
+                    boxShadow: "0 0 20px rgba(26,111,255,0.4)",
                   }}
                 />
               </div>
-              <div className="flex justify-between text-xs text-[#6a6060] mt-2">
+              <div className="flex justify-between text-xs text-[#3a5a7a] mt-2">
                 <span>Fire Spread (DNF-Treated)</span>
                 <span className="text-green-500">Controlled</span>
               </div>
@@ -75,8 +75,8 @@ export default function ResponseTime() {
                   className="absolute left-0 top-0 h-full rounded-full"
                   style={{
                     width: "30%",
-                    background: "linear-gradient(90deg, #ff9500 0%, #ff6b00 100%)",
-                    boxShadow: "0 0 10px rgba(255,107,0,0.2)",
+                    background: "linear-gradient(90deg, #38b6ff 0%, #1a6fff 100%)",
+                    boxShadow: "0 0 10px rgba(26,111,255,0.2)",
                   }}
                 />
               </div>
@@ -85,7 +85,7 @@ export default function ResponseTime() {
             {/* Timeline */}
             <div className="relative">
               {/* Vertical line */}
-              <div className="absolute left-[28px] top-0 bottom-0 w-px bg-gradient-to-b from-orange-600/60 via-orange-600/20 to-green-600/40" />
+              <div className="absolute left-[28px] top-0 bottom-0 w-px bg-gradient-to-b from-blue-600/60 via-blue-600/20 to-green-600/40" />
 
               <div className="flex flex-col gap-6">
                 {timeline.map((item, i) => (
@@ -104,8 +104,8 @@ export default function ResponseTime() {
                       </div>
                     </div>
                     <div className={`flex-1 pb-2 ${i === timeline.length - 1 ? "border border-green-900/30 bg-green-950/10 rounded-xl p-3" : ""}`}>
-                      <div className="text-sm font-bold text-[#f5f0eb] mb-0.5">{item.label}</div>
-                      <div className="text-xs text-[#a8a0a0]">{item.desc}</div>
+                      <div className="text-sm font-bold text-[#e8f0ff] mb-0.5">{item.label}</div>
+                      <div className="text-xs text-[#6688aa]">{item.desc}</div>
                     </div>
                   </div>
                 ))}

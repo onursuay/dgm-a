@@ -1,15 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const embers = Array.from({ length: 30 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  size: Math.random() * 6 + 2,
-  delay: Math.random() * 5,
-  duration: Math.random() * 4 + 3,
-  color: i % 3 === 0 ? "#ff9500" : i % 3 === 1 ? "#ff6b00" : "#cc2200",
-}));
-
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -18,204 +9,158 @@ export default function HeroSection() {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
-
-    const particles: {
-      x: number; y: number; vx: number; vy: number;
-      size: number; alpha: number; color: string;
-    }[] = [];
-
-    for (let i = 0; i < 80; i++) {
+    const particles: { x: number; y: number; vx: number; vy: number; size: number; alpha: number; color: string }[] = [];
+    const colors = ["#1a6fff", "#38b6ff", "#60c8ff", "#0044cc", "#a0d0ff"];
+    for (let i = 0; i < 60; i++) {
       particles.push({
-        x: Math.random() * canvas.width,
-        y: canvas.height + Math.random() * 200,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: -(Math.random() * 1.5 + 0.5),
-        size: Math.random() * 3 + 1,
-        alpha: Math.random() * 0.8 + 0.2,
-        color: ["#ff6b00", "#ff9500", "#cc2200", "#ff4500"][Math.floor(Math.random() * 4)],
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 2 + 0.5, alpha: Math.random() * 0.5 + 0.1,
+        color: colors[Math.floor(Math.random() * colors.length)],
       });
     }
-
     let animId: number;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.alpha -= 0.003;
-        if (p.y < -20 || p.alpha <= 0) {
-          p.y = canvas.height + 10;
-          p.x = Math.random() * canvas.width;
-          p.alpha = Math.random() * 0.8 + 0.2;
-        }
-        ctx.save();
-        ctx.globalAlpha = p.alpha;
-        ctx.fillStyle = p.color;
-        ctx.shadowBlur = 6;
-        ctx.shadowColor = p.color;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
+        ctx.save(); ctx.globalAlpha = p.alpha; ctx.fillStyle = p.color;
+        ctx.shadowBlur = 8; ctx.shadowColor = p.color;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill(); ctx.restore();
       });
       animId = requestAnimationFrame(animate);
     };
     animate();
-
-    const onResize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
+    const onResize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
     window.addEventListener("resize", onResize);
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", onResize);
-    };
+    return () => { cancelAnimationFrame(animId); window.removeEventListener("resize", onResize); };
   }, []);
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #120500 50%, #0a0a0a 100%)" }}
-    >
-      {/* Deep fire radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 70%, rgba(180,40,0,0.25) 0%, rgba(255,107,0,0.08) 40%, transparent 70%)",
-        }}
-      />
-      {/* Top vignette */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse 100% 40% at 50% 0%, rgba(0,0,0,0.8) 0%, transparent 60%)",
-        }}
-      />
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #020810 0%, #040d1a 40%, #03080f 100%)" }}>
 
-      {/* Ember canvas */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        style={{ opacity: 0.7 }}
-      />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.5 }} />
 
-      {/* Abstract heat wave lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-heat-wave"
-            style={{
-              bottom: `${10 + i * 10}%`,
-              left: 0,
-              right: 0,
-              height: "1px",
-              background: `linear-gradient(90deg, transparent 0%, rgba(255,107,0,${0.03 + i * 0.01}) ${20 + i * 5}%, rgba(255,150,0,${0.06 + i * 0.01}) 50%, rgba(255,107,0,${0.03 + i * 0.01}) ${80 - i * 5}%, transparent 100%)`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${4 + i * 0.5}s`,
-            }}
-          />
-        ))}
-      </div>
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: "linear-gradient(rgba(26,111,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,111,255,0.04) 1px, transparent 1px)",
+        backgroundSize: "60px 60px",
+      }} />
 
-      {/* Abstract fire silhouette */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none overflow-hidden">
-        <svg viewBox="0 0 1440 256" className="w-full h-full" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="fireGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#cc2200" stopOpacity="0.4" />
-              <stop offset="60%" stopColor="#ff6b00" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#0a0a0a" stopOpacity="1" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,256 L0,180 C80,160 120,100 200,80 C260,65 300,120 380,90 C440,68 480,20 560,10 C640,0 680,60 760,50 C840,40 880,10 960,20 C1040,30 1080,80 1160,70 C1240,60 1300,100 1380,120 L1440,130 L1440,256 Z"
-            fill="url(#fireGrad)"
-            className="animate-heat-wave"
-          />
-          <path
-            d="M0,256 L0,200 C100,185 140,140 220,120 C300,100 340,150 420,130 C500,110 540,60 620,50 C700,40 740,100 820,85 C900,70 940,30 1020,40 C1100,50 1140,100 1220,90 C1300,80 1360,120 1440,140 L1440,256 Z"
-            fill="rgba(255,107,0,0.06)"
-            className="animate-heat-wave"
-            style={{ animationDelay: "1s" }}
-          />
-        </svg>
-      </div>
+      <div className="absolute top-0 left-0 w-[700px] h-[700px] pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(26,111,255,0.1) 0%, transparent 65%)" }} />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(56,182,255,0.07) 0%, transparent 65%)" }} />
+      <div className="absolute left-0 right-0 h-px animate-scan-line pointer-events-none"
+        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(56,182,255,0.5) 50%, transparent 100%)" }} />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 text-center pt-24 pb-16">
-        {/* Eyebrow */}
-        <div className="inline-flex items-center gap-3 mb-8">
-          <div className="h-px w-12 bg-gradient-to-r from-transparent to-orange-500" />
-          <span className="text-xs font-bold tracking-[0.35em] uppercase text-[#ff9500] bg-orange-950/30 border border-orange-900/40 px-4 py-2 rounded-full">
-            Germany-Based Fire Safety Technology
-          </span>
-          <div className="h-px w-12 bg-gradient-to-l from-transparent to-orange-500" />
-        </div>
+      <div className="relative z-10 max-w-[1300px] mx-auto px-6 lg:px-10 pt-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
 
-        {/* Main headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight mb-8">
-          <span className="block text-[#f5f0eb]">FIRE SPREADS</span>
-          <span className="block text-[#f5f0eb]">IN SECONDS.</span>
-          <span className="block mt-2">
-            <span className="text-fire-gradient">DNF BUYS TIME.</span>
-          </span>
-        </h1>
-
-        {/* Sub headline */}
-        <p className="text-lg sm:text-xl md:text-2xl text-[#a8a0a0] max-w-3xl mx-auto mb-4 leading-relaxed font-light">
-          DNF slows fire propagation, extends critical response windows, and protects{" "}
-          <span className="text-[#ff9500] font-medium">cities, forests, industrial sites,</span>{" "}
-          and lives — with an eco-conscious formula engineered in Germany.
-        </p>
-        <p className="text-sm text-[#6a6060] mb-14 tracking-wide">
-          Every minute of additional response time saves lives. Every treated surface is a barrier.
-        </p>
-
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-          <a href="#technology" className="btn-fire px-8 py-4 rounded-full text-base w-full sm:w-auto">
-            <span className="relative z-10">Explore Technology</span>
-          </a>
-          <a href="#demonstrations" className="btn-outline-fire px-8 py-4 rounded-full text-base w-full sm:w-auto">
-            Request a Demo
-          </a>
-          <a
-            href="https://wa.me/491234567890"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-8 py-4 rounded-full text-sm font-semibold border border-white/10 text-[#a8a0a0] hover:text-white hover:border-white/30 transition-all w-full sm:w-auto justify-center"
-          >
-            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-            </svg>
-            WhatsApp Contact
-          </a>
-        </div>
-
-        {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          {[
-            { value: "3×", label: "Slower Fire Spread", sub: "with DNF treatment" },
-            { value: "+7min", label: "Extra Response Time", sub: "per treated area" },
-            { value: "40+", label: "Countries Tested", sub: "across environments" },
-            { value: "0", label: "Toxic Residue", sub: "eco-safe formula" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center p-4 border border-white/5 rounded-xl bg-white/[0.02]">
-              <div className="text-3xl font-black text-fire-gradient mb-1">{stat.value}</div>
-              <div className="text-xs font-semibold text-[#f5f0eb] mb-1">{stat.label}</div>
-              <div className="text-[10px] text-[#6a6060] tracking-wide">{stat.sub}</div>
+          {/* LEFT: Text */}
+          <div>
+            <div className="inline-flex items-center gap-2 mb-8 border border-blue-800/40 rounded-full px-4 py-2 bg-blue-950/20">
+              <div className="w-2 h-2 rounded-full bg-[#38b6ff] animate-pulse-blue" />
+              <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#38b6ff]">
+                Germany-Based Fire Safety Technology
+              </span>
             </div>
-          ))}
+
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.92] tracking-tight mb-8">
+              <span className="block text-[#e8f0ff]">FIRE SPREADS</span>
+              <span className="block text-[#e8f0ff]">IN SECONDS.</span>
+              <span className="block mt-3 text-ice-gradient">DNF BUYS TIME.</span>
+            </h1>
+
+            <p className="text-lg text-[#6688aa] leading-relaxed mb-4 max-w-xl">
+              DNF slows fire propagation, extends critical response windows, and protects{" "}
+              <span className="text-[#38b6ff] font-medium">cities, forests, industrial sites,</span>{" "}
+              and lives — with an eco-conscious formula engineered in Germany.
+            </p>
+            <p className="text-sm text-[#3a5a7a] mb-10">
+              Every treated surface is a barrier. Every extra minute saves lives.
+            </p>
+
+            <div className="flex flex-wrap gap-4 mb-12">
+              <a href="#technology" className="btn-ice px-8 py-4 rounded-full text-base">Explore Technology</a>
+              <a href="#demonstrations" className="btn-outline-ice px-8 py-4 rounded-full text-base">Request a Demo</a>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { value: "3×", label: "Slower Fire Spread" },
+                { value: "+7min", label: "Extra Response Time" },
+                { value: "40+", label: "Countries Tested" },
+                { value: "0", label: "Toxic Residue" },
+              ].map((stat) => (
+                <div key={stat.label} className="border border-blue-900/25 rounded-xl p-3 bg-blue-950/10 text-center">
+                  <div className="text-2xl font-black text-ice-gradient">{stat.value}</div>
+                  <div className="text-[10px] text-[#3a5a7a] mt-0.5 leading-tight">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT: Shield visual */}
+          <div className="flex items-center justify-center">
+            <div className="relative w-[400px] h-[400px]">
+              <div className="absolute inset-0 rounded-full border border-blue-800/20 animate-spin-slow" />
+              <div className="absolute inset-6 rounded-full border border-blue-700/10 animate-spin-slow"
+                style={{ animationDirection: "reverse", animationDuration: "25s" }} />
+
+              <div className="absolute inset-12 rounded-full flex items-center justify-center"
+                style={{
+                  background: "radial-gradient(ellipse at 40% 35%, #0a1a35 0%, #040d1a 60%, #03080f 100%)",
+                  border: "1px solid rgba(26,111,255,0.25)",
+                  boxShadow: "0 0 80px rgba(26,111,255,0.15), inset 0 0 60px rgba(26,111,255,0.05)",
+                }}>
+                <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 200 200">
+                  <circle cx="100" cy="100" r="78" fill="none" stroke="rgba(26,111,255,0.5)" strokeWidth="0.5"/>
+                  <circle cx="100" cy="100" r="52" fill="none" stroke="rgba(26,111,255,0.3)" strokeWidth="0.5"/>
+                  <circle cx="100" cy="100" r="28" fill="none" stroke="rgba(26,111,255,0.2)" strokeWidth="0.5"/>
+                  <line x1="22" y1="100" x2="178" y2="100" stroke="rgba(26,111,255,0.3)" strokeWidth="0.5"/>
+                  <line x1="100" y1="22" x2="100" y2="178" stroke="rgba(26,111,255,0.3)" strokeWidth="0.5"/>
+                </svg>
+                <div className="relative z-10 text-center">
+                  <svg className="w-20 h-20 mx-auto mb-3 text-[#38b6ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ filter: "drop-shadow(0 0 14px rgba(56,182,255,0.7))" }}>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                  <div className="text-xl font-black text-ice-gradient">DNF Shield</div>
+                  <div className="text-xs text-[#3a5a7a] mt-1">Active Fire Protection</div>
+                </div>
+              </div>
+
+              {[0, 72, 144, 216, 288].map((deg, i) => (
+                <div key={i} className="absolute w-2.5 h-2.5 rounded-full top-1/2 left-1/2"
+                  style={{
+                    background: i % 2 === 0 ? "#1a6fff" : "#38b6ff",
+                    transform: `rotate(${deg}deg) translateX(185px) translateY(-50%)`,
+                    boxShadow: `0 0 10px ${i % 2 === 0 ? "#1a6fff" : "#38b6ff"}`,
+                    opacity: 0.7,
+                  }} />
+              ))}
+
+              {[
+                { label: "Response +7min", style: { top: "6%", right: "-5%" } as React.CSSProperties },
+                { label: "Spread −69%", style: { bottom: "18%", right: "-10%" } as React.CSSProperties },
+                { label: "Eco-Certified", style: { top: "28%", left: "-8%" } as React.CSSProperties },
+              ].map((chip) => (
+                <div key={chip.label}
+                  className="absolute text-[9px] font-bold text-[#38b6ff] border border-blue-800/40 rounded-full px-2.5 py-1 bg-blue-950/60 whitespace-nowrap"
+                  style={{ ...chip.style, backdropFilter: "blur(8px)" }}>
+                  {chip.label}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
     </section>
   );
 }

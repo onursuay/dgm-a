@@ -68,7 +68,7 @@ const threats = [
     stat: "4.3M ha",
     statLabel: "burned globally per year",
     desc: "Forest fires obliterate ecosystems, habitats, and biodiversity in hours. Wildlife perishes, carbon sinks collapse, and recovery takes decades.",
-    color: "from-red-950 to-orange-950",
+    color: "from-blue-950 to-blue-950",
     border: "border-red-900/30",
   },
   {
@@ -77,8 +77,8 @@ const threats = [
     stat: "72 sec",
     statLabel: "to flashover in a room",
     desc: "Once fire reaches flashover, escape becomes nearly impossible. Urban density turns local fires into neighborhood-scale catastrophes.",
-    color: "from-orange-950 to-amber-950",
-    border: "border-orange-900/30",
+    color: "from-blue-950 to-blue-950",
+    border: "border-blue-900/30",
   },
   {
     Icon: IndustrialIcon,
@@ -86,7 +86,7 @@ const threats = [
     stat: "$2.1B",
     statLabel: "in losses per major incident",
     desc: "Chemical plants, energy facilities and warehouses face catastrophic chain reactions when fire spreads unchecked through critical zones.",
-    color: "from-amber-950 to-red-950",
+    color: "from-blue-950 to-red-950",
     border: "border-amber-900/30",
   },
   {
@@ -95,7 +95,7 @@ const threats = [
     stat: "1B+",
     statLabel: "animals lost in single events",
     desc: "Animals cannot outrun modern wildfires. Entire species face regional extinction when fire corridors outpace natural escape routes.",
-    color: "from-red-950 to-orange-950",
+    color: "from-blue-950 to-blue-950",
     border: "border-red-900/30",
   },
   {
@@ -104,8 +104,8 @@ const threats = [
     stat: "Irreplaceable",
     statLabel: "loss is permanent",
     desc: "Historic buildings, archives, art collections, and cultural landmarks — once gone, they are gone forever. Fire does not discriminate.",
-    color: "from-orange-950 to-red-950",
-    border: "border-orange-900/30",
+    color: "from-blue-950 to-red-950",
+    border: "border-blue-900/30",
   },
   {
     Icon: HumanIcon,
@@ -113,7 +113,7 @@ const threats = [
     stat: "350K",
     statLabel: "deaths from fire annually",
     desc: "Fire kills faster than most emergencies. Insufficient response time is the primary cause. Every second of delay is a second that can cost lives.",
-    color: "from-red-950 to-amber-950",
+    color: "from-blue-950 to-blue-950",
     border: "border-red-900/30",
   },
 ];
@@ -123,23 +123,23 @@ export default function FireProblem() {
     <section
       id="technology"
       className="relative py-10 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #0f0500 50%, #0a0a0a 100%)" }}
+      style={{ background: "linear-gradient(180deg, #03080f 0%, #050c18 50%, #03080f 100%)" }}
     >
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(180,40,0,0.08) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(0,60,180,0.08) 0%, transparent 70%)" }}
       />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="text-center mb-10">
-          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#ff6b00] mb-6">
+          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">
             The Scale of the Problem
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f5f0eb] leading-tight mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight mb-6">
             Fire Does Not Wait.<br />
             <span className="text-fire-gradient">Neither Should We.</span>
           </h2>
-          <p className="text-[#a8a0a0] text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#6688aa] text-lg max-w-2xl mx-auto leading-relaxed">
             Every year, fire consumes lives, environments, economies, and heritage. The challenge is not just extinguishing fire — it is slowing its advance long enough for humans to respond.
           </p>
         </div>
@@ -153,27 +153,27 @@ export default function FireProblem() {
               <div className="absolute inset-0 bg-black/50 rounded-2xl" />
               <div className="relative z-10">
                 {/* Vector icon */}
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-[#ff6b00]"
-                  style={{ background: "rgba(255,107,0,0.1)", border: "1px solid rgba(255,107,0,0.2)" }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-[#1a6fff]"
+                  style={{ background: "rgba(26,111,255,0.1)", border: "1px solid rgba(26,111,255,0.2)" }}>
                   <threat.Icon />
                 </div>
                 <div className="text-3xl font-black text-fire-gradient mb-1">{threat.stat}</div>
-                <div className="text-xs text-[#a8a0a0] mb-3 tracking-wide uppercase">{threat.statLabel}</div>
-                <h3 className="text-lg font-bold text-[#f5f0eb] mb-3">{threat.title}</h3>
-                <p className="text-sm text-[#a8a0a0] leading-relaxed">{threat.desc}</p>
+                <div className="text-xs text-[#6688aa] mb-3 tracking-wide uppercase">{threat.statLabel}</div>
+                <h3 className="text-lg font-bold text-[#e8f0ff] mb-3">{threat.title}</h3>
+                <p className="text-sm text-[#6688aa] leading-relaxed">{threat.desc}</p>
               </div>
               <div className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"
-                style={{ background: "radial-gradient(circle, #ff6b00 0%, transparent 70%)", transform: "translate(30%, -30%)" }} />
+                style={{ background: "radial-gradient(circle, #1a6fff 0%, transparent 70%)", transform: "translate(30%, -30%)" }} />
             </div>
           ))}
         </div>
 
-        <div className="mt-10 text-center p-8 rounded-2xl border border-orange-900/20 bg-orange-950/10">
-          <p className="text-xl md:text-2xl font-bold text-[#f5f0eb]">
+        <div className="mt-10 text-center p-8 rounded-2xl border border-blue-900/20 bg-blue-950/10">
+          <p className="text-xl md:text-2xl font-bold text-[#e8f0ff]">
             The window between ignition and catastrophe is{" "}
             <span className="text-fire-gradient">measured in minutes.</span>
           </p>
-          <p className="text-[#a8a0a0] mt-3 max-w-xl mx-auto">
+          <p className="text-[#6688aa] mt-3 max-w-xl mx-auto">
             DNF was engineered to widen that window. Not to replace firefighters, but to give them the time they need to save what matters.
           </p>
         </div>

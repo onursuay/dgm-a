@@ -66,13 +66,13 @@ export default function Footer() {
       {/* Main footer content */}
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10 pt-12 pb-8">
         {/* Top row: Brand + newsletter */}
-        <div className="flex flex-col lg:flex-row justify-between gap-10 mb-16 pb-10 border-b border-orange-900/15">
+        <div className="flex flex-col lg:flex-row justify-between gap-10 mb-16 pb-10 border-b border-blue-900/15">
           {/* Brand */}
           <div className="lg:w-1/3">
             {/* Logo */}
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #ff6b00 0%, #cc2200 100%)" }}>
+                style={{ background: "linear-gradient(135deg, #1a6fff 0%, #0044cc 100%)" }}>
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C12 2 7 7.5 7 12a5 5 0 0010 0c0-4.5-5-10-5-10zm0 4c0 0 3 3.5 3 6a3 3 0 01-6 0c0-2.5 3-6 3-6z" />
                 </svg>
@@ -82,11 +82,11 @@ export default function Footer() {
               </span>
             </div>
 
-            <p className="text-sm text-[#6a6060] leading-relaxed mb-4 max-w-xs">
+            <p className="text-sm text-[#3a5a7a] leading-relaxed mb-4 max-w-xs">
               Germany-based next-generation fire safety technology. Slowing fire spread. Protecting lives, environments and assets. Eco-conscious by design.
             </p>
 
-            <div className="text-xs text-[#6a6060] space-y-1">
+            <div className="text-xs text-[#3a5a7a] space-y-1">
               <div className="flex items-center gap-1.5"><IconPin className="w-3 h-3 shrink-0" /> Germany</div>
               <div className="flex items-center gap-1.5"><IconEmail className="w-3 h-3 shrink-0" /> info@dnf-technology.de</div>
               <div className="flex items-center gap-1">
@@ -100,15 +100,15 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div className="lg:w-96">
-            <h4 className="text-base font-bold text-[#f5f0eb] mb-2">Stay Informed</h4>
-            <p className="text-xs text-[#6a6060] mb-4">
+            <h4 className="text-base font-bold text-[#e8f0ff] mb-2">Stay Informed</h4>
+            <p className="text-xs text-[#3a5a7a] mb-4">
               Receive DNF updates, demonstration schedules and fire safety insights.
             </p>
             <div className="flex gap-2">
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 bg-[#111] border border-orange-900/20 rounded-full px-5 py-3 text-sm text-[#f5f0eb] placeholder-[#6a6060] focus:outline-none focus:border-orange-700/50 transition-colors"
+                className="flex-1 bg-[#111] border border-blue-900/20 rounded-full px-5 py-3 text-sm text-[#e8f0ff] placeholder-[#3a5a7a] focus:outline-none focus:border-blue-700/50 transition-colors"
               />
               <button className="btn-fire px-5 py-3 rounded-full text-sm shrink-0">
                 Subscribe
@@ -121,7 +121,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
-              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#ff6b00] mb-4">
+              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#38b6ff] mb-4">
                 {section}
               </h4>
               <ul className="space-y-2">
@@ -129,7 +129,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-xs text-[#6a6060] hover:text-[#a8a0a0] transition-colors"
+                      className="text-xs text-[#3a5a7a] hover:text-[#6688aa] transition-colors"
                     >
                       {link.label}
                     </a>
@@ -141,7 +141,7 @@ export default function Footer() {
         </div>
 
         {/* Certifications row */}
-        <div className="flex flex-wrap gap-4 justify-center mb-12 pb-8 border-b border-orange-900/10">
+        <div className="flex flex-wrap gap-4 justify-center mb-12 pb-8 border-b border-blue-900/10">
           {[
             { label: "CE Certified", Icon: IconBadge },
             { label: "TÜV Tested", Icon: IconCheck },
@@ -149,7 +149,7 @@ export default function Footer() {
             { label: "Eco Certified", Icon: IconLeaf },
             { label: "Fire Authority Approved", Icon: IconFireTruck },
           ].map((cert) => (
-            <div key={cert.label} className="flex items-center gap-2 border border-orange-900/15 rounded-full px-4 py-2 text-xs text-[#6a6060]">
+            <div key={cert.label} className="flex items-center gap-2 border border-blue-900/15 rounded-full px-4 py-2 text-xs text-[#3a5a7a]">
               <cert.Icon className="w-3.5 h-3.5 shrink-0" />
               <span>{cert.label}</span>
             </div>
@@ -159,13 +159,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
           {/* Left: Legal */}
-          <div className="flex flex-wrap gap-4 text-xs text-[#4a4040]">
+          <div className="flex flex-wrap gap-4 text-xs text-[#1e3a5a]">
             <span>© 2025 DNF Technology. All rights reserved.</span>
-            <a href="#" className="hover:text-[#6a6060] transition-colors">Impressum</a>
-            <a href="#" className="hover:text-[#6a6060] transition-colors">Datenschutz</a>
-            <a href="#" className="hover:text-[#6a6060] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#6a6060] transition-colors">Terms of Use</a>
-            <a href="#" className="hover:text-[#6a6060] transition-colors">Cookie Policy</a>
+            <a href="#" className="hover:text-[#3a5a7a] transition-colors">Impressum</a>
+            <a href="#" className="hover:text-[#3a5a7a] transition-colors">Datenschutz</a>
+            <a href="#" className="hover:text-[#3a5a7a] transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-[#3a5a7a] transition-colors">Terms of Use</a>
+            <a href="#" className="hover:text-[#3a5a7a] transition-colors">Cookie Policy</a>
           </div>
 
           {/* Center: Social */}
@@ -178,7 +178,7 @@ export default function Footer() {
               <a
                 key={s.label}
                 href="#"
-                className="w-8 h-8 rounded-full border border-orange-900/20 flex items-center justify-center text-[10px] text-[#6a6060] hover:text-[#ff9500] hover:border-orange-700/40 transition-all"
+                className="w-8 h-8 rounded-full border border-blue-900/20 flex items-center justify-center text-[10px] text-[#3a5a7a] hover:text-[#38b6ff] hover:border-blue-700/40 transition-all"
                 aria-label={s.label}
               >
                 {s.icon}
@@ -187,15 +187,15 @@ export default function Footer() {
           </div>
 
           {/* Right: Language */}
-          <div className="flex items-center gap-1 border border-orange-900/15 rounded-full px-1 py-1">
+          <div className="flex items-center gap-1 border border-blue-900/15 rounded-full px-1 py-1">
             {languages.map((l) => (
               <button
                 key={l}
                 onClick={() => setLang(l)}
                 className={`px-3 py-1 text-xs font-semibold rounded-full transition-all ${
                   lang === l
-                    ? "bg-gradient-to-r from-orange-600 to-red-700 text-white"
-                    : "text-[#6a6060] hover:text-[#a8a0a0]"
+                    ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white"
+                    : "text-[#3a5a7a] hover:text-[#6688aa]"
                 }`}
               >
                 {l}

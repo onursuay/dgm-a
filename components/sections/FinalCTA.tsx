@@ -5,11 +5,11 @@ export default function FinalCTA() {
     <section
       id="contact"
       className="relative py-12 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #080808 0%, #120600 50%, #080808 100%)" }}
+      style={{ background: "linear-gradient(180deg, #030810 0%, #060d1c 50%, #030810 100%)" }}
     >
       <div className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(200,50,0,0.15) 0%, rgba(255,107,0,0.05) 40%, transparent 70%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,60,200,0.15) 0%, rgba(26,111,255,0.05) 40%, transparent 70%)",
         }} />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -22,8 +22,8 @@ export default function FinalCTA() {
               bottom: "20%",
               width: `${3 + (i % 3)}px`,
               height: `${3 + (i % 3)}px`,
-              background: i % 2 === 0 ? "#ff6b00" : "#ff9500",
-              boxShadow: `0 0 6px ${i % 2 === 0 ? "#ff6b00" : "#ff9500"}`,
+              background: i % 2 === 0 ? "#1a6fff" : "#38b6ff",
+              boxShadow: `0 0 6px ${i % 2 === 0 ? "#1a6fff" : "#38b6ff"}`,
               animationDelay: `${i * 0.4}s`,
               animationDuration: `${3 + (i % 3)}s`,
             }}
@@ -33,22 +33,22 @@ export default function FinalCTA() {
 
       <div className="relative z-10 max-w-[900px] mx-auto px-6 lg:px-10 text-center">
         <div className="inline-flex items-center gap-3 mb-10">
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-orange-600" />
-          <span className="text-xs font-bold tracking-[0.35em] uppercase text-[#ff6b00]">
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-blue-600" />
+          <span className="text-xs font-bold tracking-[0.35em] uppercase text-[#1a6fff]">
             Take Action
           </span>
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-orange-600" />
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-blue-600" />
         </div>
 
-        <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-[#f5f0eb] leading-[0.95] mb-8">
+        <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-[#e8f0ff] leading-[0.95] mb-8">
           The Next Fire<br />
           <span className="text-fire-gradient">Won&apos;t Wait.</span>
         </h2>
 
-        <p className="text-xl text-[#a8a0a0] leading-relaxed mb-4 max-w-2xl mx-auto">
+        <p className="text-xl text-[#6688aa] leading-relaxed mb-4 max-w-2xl mx-auto">
           Protection is a decision made before disaster — not during it. DNF gives municipalities, industries and fire authorities the tool to make that decision count.
         </p>
-        <p className="text-base text-[#6a6060] mb-14">
+        <p className="text-base text-[#3a5a7a] mb-14">
           Contact us to request information, schedule a demonstration, or explore a partnership.
         </p>
 
@@ -75,26 +75,26 @@ export default function FinalCTA() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-          <div className="text-center border border-orange-900/15 rounded-xl p-5 bg-orange-950/5">
-            <div className="w-8 h-8 mx-auto mb-2 text-[#ff6b00]">
+          <div className="text-center border border-blue-900/15 rounded-xl p-5 bg-blue-950/5">
+            <div className="w-8 h-8 mx-auto mb-2 text-[#1a6fff]">
               <IconEmail className="w-8 h-8" />
             </div>
-            <div className="text-xs text-[#6a6060] mb-1">Email</div>
-            <div className="text-sm text-[#f5f0eb] font-medium">info@dnf-technology.de</div>
+            <div className="text-xs text-[#3a5a7a] mb-1">Email</div>
+            <div className="text-sm text-[#e8f0ff] font-medium">info@dnf-technology.de</div>
           </div>
-          <div className="text-center border border-orange-900/15 rounded-xl p-5 bg-orange-950/5">
-            <div className="w-8 h-8 mx-auto mb-2 text-[#ff6b00]">
+          <div className="text-center border border-blue-900/15 rounded-xl p-5 bg-blue-950/5">
+            <div className="w-8 h-8 mx-auto mb-2 text-[#1a6fff]">
               <IconPin className="w-8 h-8" />
             </div>
-            <div className="text-xs text-[#6a6060] mb-1">Headquartered</div>
-            <div className="text-sm text-[#f5f0eb] font-medium">Germany</div>
+            <div className="text-xs text-[#3a5a7a] mb-1">Headquartered</div>
+            <div className="text-sm text-[#e8f0ff] font-medium">Germany</div>
           </div>
-          <div className="text-center border border-orange-900/15 rounded-xl p-5 bg-orange-950/5">
-            <div className="w-8 h-8 mx-auto mb-2 text-[#ff6b00]">
+          <div className="text-center border border-blue-900/15 rounded-xl p-5 bg-blue-950/5">
+            <div className="w-8 h-8 mx-auto mb-2 text-[#1a6fff]">
               <IconGlobe className="w-8 h-8" />
             </div>
-            <div className="text-xs text-[#6a6060] mb-1">Operating in</div>
-            <div className="text-sm text-[#f5f0eb] font-medium">8+ Countries</div>
+            <div className="text-xs text-[#3a5a7a] mb-1">Operating in</div>
+            <div className="text-sm text-[#e8f0ff] font-medium">8+ Countries</div>
           </div>
         </div>
       </div>

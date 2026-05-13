@@ -18,35 +18,35 @@ export default function UseCasesPreview() {
     <section
       id="use-cases"
       className="relative py-10 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0a0a0a 0%, #0c0400 30%, #0a0a0a 100%)" }}
+      style={{ background: "linear-gradient(180deg, #03080f 0%, #050c18 30%, #03080f 100%)" }}
     >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="text-center mb-8">
-          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#ff6b00] mb-6">Applications</span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f5f0eb] leading-tight mb-6">
+          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">Applications</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight mb-6">
             One Technology.<br />
             <span className="text-fire-gradient">Infinite Applications.</span>
           </h2>
-          <p className="text-[#a8a0a0] max-w-2xl mx-auto text-lg">
+          <p className="text-[#6688aa] max-w-2xl mx-auto text-lg">
             DNF was designed for scalability. From a single building to a national forest network — the same core technology adapts to every environment and scale.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
           {useCases.map((uc, i) => (
-            <div key={i} className="group card-premium rounded-2xl p-5 border border-orange-900/10 hover:border-orange-700/30 cursor-pointer transition-all duration-400 relative overflow-hidden">
+            <div key={i} className="group card-premium rounded-2xl p-5 border border-blue-900/10 hover:border-blue-700/30 cursor-pointer transition-all duration-400 relative overflow-hidden">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-                style={{ background: "radial-gradient(circle at 50% 0%, rgba(255,107,0,0.06) 0%, transparent 70%)" }} />
+                style={{ background: "radial-gradient(circle at 50% 0%, rgba(26,111,255,0.06) 0%, transparent 70%)" }} />
               <div className="relative z-10">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-[#ff6b00]"
-                  style={{ background: "rgba(255,107,0,0.08)", border: "1px solid rgba(255,107,0,0.15)" }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-[#1a6fff]"
+                  style={{ background: "rgba(26,111,255,0.08)", border: "1px solid rgba(26,111,255,0.15)" }}>
                   <uc.Icon className="w-5 h-5" />
                 </div>
-                <div className="inline-block text-[10px] font-bold tracking-widest uppercase text-[#ff6b00] bg-orange-950/30 border border-orange-900/20 px-2 py-0.5 rounded-full mb-2">
+                <div className="inline-block text-[10px] font-bold tracking-widest uppercase text-[#1a6fff] bg-blue-950/30 border border-blue-900/20 px-2 py-0.5 rounded-full mb-2">
                   {uc.tag}
                 </div>
-                <h3 className="text-sm font-bold text-[#f5f0eb] mb-2 leading-tight">{uc.title}</h3>
-                <p className="text-xs text-[#6a6060] leading-relaxed">{uc.desc}</p>
+                <h3 className="text-sm font-bold text-[#e8f0ff] mb-2 leading-tight">{uc.title}</h3>
+                <p className="text-xs text-[#3a5a7a] leading-relaxed">{uc.desc}</p>
               </div>
             </div>
           ))}

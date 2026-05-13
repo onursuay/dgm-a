@@ -15,8 +15,8 @@ const languages = ["DE", "EN", "TR"];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState("EN");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lang, setLang] = useState("EN");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -26,115 +26,96 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-black/95 backdrop-blur-xl border-b border-orange-900/30 shadow-2xl shadow-black/60"
-          : "bg-gradient-to-b from-black/80 to-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled
+          ? "rgba(3,8,15,0.92)"
+          : "rgba(3,8,15,0.6)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderBottom: scrolled ? "1px solid rgba(26,111,255,0.15)" : "1px solid transparent",
+        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.4)" : "none",
+      }}
     >
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-between h-18 py-4">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-orange-600 to-red-700 opacity-90 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute inset-0 rounded-lg animate-glow-pulse opacity-0 group-hover:opacity-100" />
-              <svg className="relative z-10 w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C12 2 7 7.5 7 12a5 5 0 0010 0c0-4.5-5-10-5-10zm0 4c0 0 3 3.5 3 6a3 3 0 01-6 0c0-2.5 3-6 3-6z" />
-              </svg>
-            </div>
-            <span className="text-2xl font-black tracking-widest text-white">
-              D<span className="text-fire-gradient">N</span>F
-            </span>
-          </a>
+      <div className="max-w-[1300px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
 
-          {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="px-4 py-2 text-sm font-medium text-[#a8a0a0] hover:text-[#ff9500] transition-colors duration-200 relative group"
-              >
-                {link.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-gradient-to-r from-orange-600 to-red-600 group-hover:w-4/5 transition-all duration-300" />
-              </a>
-            ))}
-          </nav>
-
-          {/* Right Controls */}
-          <div className="hidden xl:flex items-center gap-4">
-            {/* Language Selector */}
-            <div className="flex items-center gap-1 border border-white/10 rounded-full px-1 py-1">
-              {languages.map((l) => (
-                <button
-                  key={l}
-                  onClick={() => setLang(l)}
-                  className={`px-3 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
-                    lang === l
-                      ? "bg-gradient-to-r from-orange-600 to-red-700 text-white"
-                      : "text-[#a8a0a0] hover:text-white"
-                  }`}
-                >
-                  {l}
-                </button>
-              ))}
-            </div>
-
-            <a
-              href="#contact"
-              className="btn-fire px-5 py-2 rounded-full text-sm"
-            >
-              Request Demo
-            </a>
+        {/* Logo */}
+        <a href="#home" className="flex items-center gap-3 shrink-0">
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center"
+            style={{ background: "linear-gradient(135deg, #1a6fff 0%, #0044cc 100%)", boxShadow: "0 0 20px rgba(26,111,255,0.4)" }}>
+            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
           </div>
+          <span className="text-xl font-black tracking-widest text-[#e8f0ff]">
+            D<span className="text-ice-gradient">N</span>F
+          </span>
+        </a>
 
-          {/* Mobile burger */}
-          <button
-            className="xl:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className={`block h-px w-6 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2.5" : ""}`} />
-            <span className={`block h-px w-6 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-px w-6 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2.5" : ""}`} />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`xl:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-        } bg-black/98 border-t border-orange-900/20`}
-      >
-        <div className="px-6 py-6 flex flex-col gap-2">
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="py-3 text-base font-medium text-[#a8a0a0] hover:text-[#ff9500] border-b border-white/5 transition-colors"
-            >
+            <a key={link.label} href={link.href}
+              className="text-sm font-medium text-[#5e7a9a] hover:text-[#38b6ff] transition-colors duration-200">
               {link.label}
             </a>
           ))}
-          <div className="flex items-center gap-2 mt-4">
+        </nav>
+
+        {/* Right controls */}
+        <div className="hidden lg:flex items-center gap-3">
+          {/* Language selector */}
+          <div className="flex items-center gap-0.5 border border-blue-900/30 rounded-full px-1 py-1 bg-blue-950/20">
             {languages.map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`px-4 py-2 text-sm font-semibold rounded-full transition-all ${
+              <button key={l} onClick={() => setLang(l)}
+                className={`px-3 py-1 text-xs font-semibold rounded-full transition-all ${
                   lang === l
-                    ? "bg-gradient-to-r from-orange-600 to-red-700 text-white"
-                    : "border border-white/20 text-[#a8a0a0]"
-                }`}
-              >
+                    ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white"
+                    : "text-[#3a5a7a] hover:text-[#6688aa]"
+                }`}>
                 {l}
               </button>
             ))}
           </div>
-          <a href="#contact" className="btn-fire mt-4 px-6 py-3 rounded-full text-sm">
+
+          <a href="#contact" className="btn-ice px-5 py-2.5 rounded-full text-sm">
+            Request Demo
+          </a>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="lg:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Menu">
+          {[0, 1, 2].map((i) => (
+            <span key={i} className="block w-6 h-0.5 bg-[#38b6ff] transition-all duration-300" />
+          ))}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-[600px]" : "max-h-0"}`}
+        style={{ borderTop: menuOpen ? "1px solid rgba(26,111,255,0.1)" : "none" }}>
+        <div className="px-6 py-4 space-y-3" style={{ background: "rgba(3,8,15,0.98)" }}>
+          {navLinks.map((link) => (
+            <a key={link.label} href={link.href} onClick={() => setMenuOpen(false)}
+              className="block text-sm text-[#5e7a9a] hover:text-[#38b6ff] py-2 transition-colors">
+              {link.label}
+            </a>
+          ))}
+          <div className="pt-3 flex items-center gap-2 flex-wrap">
+            {languages.map((l) => (
+              <button key={l} onClick={() => setLang(l)}
+                className={`px-3 py-1 text-xs font-semibold rounded-full border transition-all ${
+                  lang === l ? "bg-blue-700 text-white border-blue-600" : "border-blue-900/30 text-[#3a5a7a]"
+                }`}>
+                {l}
+              </button>
+            ))}
+          </div>
+          <a href="#contact" className="btn-ice px-5 py-2.5 rounded-full text-sm block text-center mt-2">
             Request Demo
           </a>
         </div>

@@ -67,26 +67,26 @@ export default function SolutionOverview() {
     <section
       className="relative py-10 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #0a0a0a 0%, #0d0500 30%, #0a0a0a 100%)",
+        background: "linear-gradient(180deg, #03080f 0%, #050c18 30%, #03080f 100%)",
       }}
     >
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,107,0,0.04) 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(26,111,255,0.04) 0%, transparent 70%)" }} />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-10">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#ff6b00] mb-6">
+            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">
               The DNF Solution
             </span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f5f0eb] leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight">
               Fire Safety<br />
               <span className="text-fire-gradient">Reimagined.</span>
             </h2>
           </div>
           <div>
-            <p className="text-[#a8a0a0] text-lg leading-relaxed">
+            <p className="text-[#6688aa] text-lg leading-relaxed">
               DNF is not a conventional fire extinguisher. It is a proactive, surface-level fire protection system that fundamentally changes the dynamics of fire propagation — giving people time, systems breathing room, and environments a chance.
             </p>
           </div>
@@ -97,24 +97,24 @@ export default function SolutionOverview() {
           {pillars.map((pillar, i) => (
             <div
               key={i}
-              className="card-premium rounded-2xl p-7 relative overflow-hidden group border border-orange-900/10"
+              className="card-premium rounded-2xl p-7 relative overflow-hidden group border border-blue-900/10"
             >
               {/* Number watermark */}
-              <div className="absolute top-4 right-6 text-6xl font-black opacity-5 text-[#ff6b00] leading-none select-none">
+              <div className="absolute top-4 right-6 text-6xl font-black opacity-5 text-[#1a6fff] leading-none select-none">
                 {pillar.number}
               </div>
 
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 text-[#ff6b00]"
-                  style={{ background: "rgba(255,107,0,0.08)", border: "1px solid rgba(255,107,0,0.15)" }}>
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 text-[#1a6fff]"
+                  style={{ background: "rgba(26,111,255,0.08)", border: "1px solid rgba(26,111,255,0.15)" }}>
                   {pillar.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#f5f0eb] mb-3">{pillar.title}</h3>
-                <p className="text-sm text-[#a8a0a0] leading-relaxed">{pillar.desc}</p>
+                <h3 className="text-lg font-bold text-[#e8f0ff] mb-3">{pillar.title}</h3>
+                <p className="text-sm text-[#6688aa] leading-relaxed">{pillar.desc}</p>
               </div>
 
               {/* Bottom accent */}
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-600/20 to-transparent group-hover:via-orange-600/50 transition-all duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-600/20 to-transparent group-hover:via-blue-600/50 transition-all duration-500" />
             </div>
           ))}
         </div>
