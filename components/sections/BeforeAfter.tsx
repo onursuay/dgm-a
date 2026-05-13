@@ -54,7 +54,7 @@ export default function BeforeAfter() {
   const scenario = scenarios[active];
 
   return (
-    <section className="relative py-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #030810 0%, #0a0400 50%, #030810 100%)" }}>
+    <section className="relative py-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #030810 0%, #030a12 50%, #030810 100%)" }}>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         {/* Header */}
         <div className="text-center mb-6">
@@ -120,7 +120,7 @@ export default function BeforeAfter() {
           {/* After */}
           <div className="rounded-2xl overflow-hidden border border-blue-900/30">
             {/* Visual bar */}
-            <div className="h-3 bg-gradient-to-r from-blue-600 via-amber-500 to-yellow-600 animate-glow-pulse" />
+            <div className="h-3 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 animate-glow-pulse" />
             <div className="p-8 bg-[#0d0800]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 rounded-full bg-blue-900/30 border border-blue-700/40 flex items-center justify-center">

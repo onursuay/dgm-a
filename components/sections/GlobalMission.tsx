@@ -66,9 +66,9 @@ function statusStyle(status: string): React.CSSProperties {
   }
   if (status === "Expanding") {
     return {
-      color: "#fbbf24",
-      background: "rgba(251,191,36,0.08)",
-      border: "1px solid rgba(251,191,36,0.2)",
+      color: "#60c8ff",
+      background: "rgba(96,200,255,0.08)",
+      border: "1px solid rgba(96,200,255,0.2)",
     };
   }
   return {
@@ -81,7 +81,7 @@ function statusStyle(status: string): React.CSSProperties {
 export default function GlobalMission() {
   return (
     <section
-      className="relative py-20 overflow-hidden"
+      className="relative py-10 overflow-hidden"
       style={{ background: "#020c1b" }}
     >
       {/* Ambient glow */}

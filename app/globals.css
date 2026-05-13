@@ -220,6 +220,13 @@ body {
 .animate-shield-pulse { animation: shield-pulse 3s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 
+/* ── fade-in-up ───────────────────────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fade-in-up 0.7s ease forwards; opacity: 0; }
+
 /* ── fire-gradient alias (used in original components) ────────────── */
 .text-fire-gradient {
   background: linear-gradient(135deg, #38b6ff 0%, #1a6fff 50%, #a0c4ff 100%);

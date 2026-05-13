@@ -55,7 +55,7 @@ export default function DemonstrationPreview() {
   return (
     <section
       id="demonstrations"
-      className="relative py-20 overflow-hidden"
+      className="relative py-10 overflow-hidden"
       style={{ background: "#020c1b" }}
     >
       {/* Ambient glow */}

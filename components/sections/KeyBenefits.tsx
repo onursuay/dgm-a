@@ -59,7 +59,7 @@ export default function KeyBenefits() {
   return (
     <section
       id="sustainability"
-      className="relative py-20 overflow-hidden"
+      className="relative py-10 overflow-hidden"
       style={{ background: "#020c1b" }}
     >
       {/* Ambient glow right side */}

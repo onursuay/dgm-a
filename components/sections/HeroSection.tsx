@@ -61,12 +61,13 @@ export default function HeroSection() {
         </div>
 
         {/* Headline */}
-        <h1 className="font-black leading-[0.9] tracking-tight mb-8">
-          <span className="block text-[4.5rem] sm:text-[5.5rem] lg:text-[7rem] text-[#e8f0ff]">FIRE SPREADS</span>
-          <span className="block text-[4.5rem] sm:text-[5.5rem] lg:text-[7rem] text-[#e8f0ff]">IN SECONDS.</span>
-          <span className="block text-[3rem] sm:text-[4rem] lg:text-[5.5rem] mt-4" style={{
+        <h1 className="font-black leading-[1.05] tracking-tight mb-8">
+          <span className="block text-4xl sm:text-5xl lg:text-6xl text-[#e8f0ff] animate-fade-in-up" style={{ animationDelay: "0.1s" }}>FIRE SPREADS</span>
+          <span className="block text-4xl sm:text-5xl lg:text-6xl text-[#e8f0ff] animate-fade-in-up" style={{ animationDelay: "0.3s" }}>IN SECONDS.</span>
+          <span className="block text-3xl sm:text-4xl lg:text-5xl mt-3 animate-fade-in-up" style={{
             background: "linear-gradient(90deg, #38b6ff 0%, #1a6fff 50%, #60c8ff 100%)",
-            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"
+            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+            animationDelay: "0.55s"
           }}>DNF BUYS TIME.</span>
         </h1>
 

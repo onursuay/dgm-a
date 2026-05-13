@@ -9,13 +9,13 @@ export default function FireShieldVisual() {
         <div
           className="relative flex flex-col justify-center items-center p-16 overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #200800 0%, #300a00 30%, #1a0400 100%)",
+            background: "linear-gradient(135deg, #0a0010 0%, #12001a 30%, #08000f 100%)",
           }}
         >
-          {/* Fire glow background */}
+          {/* Threat glow background */}
           <div className="absolute inset-0"
             style={{
-              background: "radial-gradient(ellipse 80% 70% at 50% 80%, rgba(200,40,0,0.4) 0%, rgba(26,111,255,0.1) 50%, transparent 70%)",
+              background: "radial-gradient(ellipse 80% 70% at 50% 80%, rgba(180,0,60,0.25) 0%, transparent 65%)",
             }} />
 
           {/* Abstract flame shapes */}
@@ -30,7 +30,7 @@ export default function FireShieldVisual() {
                 <linearGradient id="flame2" x1="0%" y1="100%" x2="0%" y2="0%">
                   <stop offset="0%" stopColor="#1a6fff" stopOpacity="0.6" />
                   <stop offset="70%" stopColor="#38b6ff" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#ffcc00" stopOpacity="0" />
+                  <stop offset="100%" stopColor="#1a6fff" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path d="M0,320 C50,280 80,200 120,160 C160,120 140,60 180,20 C220,-20 240,80 280,60 C320,40 300,140 340,100 C380,60 400,160 440,120 C480,80 500,200 550,160 L600,320 Z"
@@ -56,10 +56,15 @@ export default function FireShieldVisual() {
 
           {/* Content */}
           <div className="relative z-10 text-center max-w-sm">
-            <div className="text-6xl mb-6">🔥</div>
+            <div className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
+              style={{ background: "rgba(180,0,60,0.12)", border: "1px solid rgba(180,0,60,0.3)" }}>
+              <svg className="w-10 h-10" fill="none" stroke="#f87171" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+              </svg>
+            </div>
             <h3 className="text-3xl font-black text-[#e8f0ff] mb-4 leading-tight">
               Unprotected.<br />
-              <span className="text-red-500">Exposed.</span>
+              <span className="text-red-400">Exposed.</span>
             </h3>
             <p className="text-[#6688aa] text-base leading-relaxed">
               Without intervention, fire spreads at its natural rate — consuming surface after surface, building heat, denying escape, and overwhelming response teams.
