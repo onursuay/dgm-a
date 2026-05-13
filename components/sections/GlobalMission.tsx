@@ -1,12 +1,52 @@
-const regions = [
-  { label: "Europe", status: "Active", count: "8 countries" },
-  { label: "Middle East", status: "Expanding", count: "3 deployments" },
-  { label: "Americas", status: "Pipeline", count: "2026 target" },
-  { label: "Asia Pacific", status: "Pipeline", count: "2026 target" },
-  { label: "Africa", status: "Research", count: "Pilot phase" },
+// GlobalMission.tsx — Ice & Steel design — centered header + SYMMETRIC 2-col (regions + timeline)
+// No spinning globe decoration — both columns have equal meaningful content
+
+interface Region {
+  label: string;
+  status: string;
+  count: string;
+  desc: string;
+}
+
+const regions: Region[] = [
+  {
+    label: "Europe",
+    status: "Active",
+    count: "8 countries",
+    desc: "Fully operational across 8 European nations with municipal, industrial and forest deployments.",
+  },
+  {
+    label: "Middle East",
+    status: "Expanding",
+    count: "3 deployments",
+    desc: "Active expansion with three high-priority deployment agreements finalized in the region.",
+  },
+  {
+    label: "Americas",
+    status: "Pipeline",
+    count: "2026 target",
+    desc: "Partnership negotiations underway with North and South American authorities targeting 2026.",
+  },
+  {
+    label: "Asia Pacific",
+    status: "Pipeline",
+    count: "2026 target",
+    desc: "Regulatory groundwork and distributor identification ongoing across APAC markets.",
+  },
+  {
+    label: "Africa",
+    status: "Research",
+    count: "Pilot phase",
+    desc: "Feasibility research and pilot project design underway for Sub-Saharan forest protection.",
+  },
 ];
 
-const milestones = [
+interface Milestone {
+  year: string;
+  label: string;
+}
+
+const milestones: Milestone[] = [
   { year: "2018", label: "DNF formula development begins in Germany" },
   { year: "2020", label: "First independent laboratory certifications completed" },
   { year: "2021", label: "Pilot deployments with European fire authorities" },
@@ -16,129 +56,159 @@ const milestones = [
   { year: "2025+", label: "Global scale — Americas, Asia Pacific, Africa" },
 ];
 
+function statusStyle(status: string): React.CSSProperties {
+  if (status === "Active") {
+    return {
+      color: "#38b6ff",
+      background: "rgba(26,111,255,0.1)",
+      border: "1px solid rgba(56,182,255,0.25)",
+    };
+  }
+  if (status === "Expanding") {
+    return {
+      color: "#fbbf24",
+      background: "rgba(251,191,36,0.08)",
+      border: "1px solid rgba(251,191,36,0.2)",
+    };
+  }
+  return {
+    color: "#6688aa",
+    background: "rgba(58,90,122,0.1)",
+    border: "1px solid rgba(58,90,122,0.2)",
+  };
+}
+
 export default function GlobalMission() {
   return (
-    <section className="relative py-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #030810 0%, #050c18 40%, #030810 100%)" }}>
-      {/* Globe glow */}
-      <div className="absolute inset-0 pointer-events-none"
+    <section
+      className="relative py-20 overflow-hidden"
+      style={{ background: "#020c1b" }}
+    >
+      {/* Ambient glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(26,111,255,0.04) 0%, transparent 70%)",
-        }} />
+          background:
+            "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(26,111,255,0.04) 0%, transparent 70%)",
+        }}
+      />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-10">
+        {/* Centered header */}
+        <div className="text-center mb-14">
+          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#38b6ff] mb-5">
+            Global Mission
+          </span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight mb-6">
+            A Safer World
+            <br />
+            <span className="text-ice-gradient">Is a Prepared One.</span>
+          </h2>
+          <p className="text-[#6688aa] text-lg max-w-2xl mx-auto leading-relaxed">
+            DNF was born in Germany with a mission that extends far beyond national borders. Fire does not
+            respect boundaries — and neither does our commitment to protecting what matters.
+          </p>
+        </div>
+
+        {/* SYMMETRIC 2-col content — left: regions, right: timeline */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
+          {/* LEFT: 5 region status cards */}
           <div>
-            <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">
-              Global Mission
-            </span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight mb-6">
-              A Safer World<br />
-              <span className="text-fire-gradient">Is a Prepared One.</span>
-            </h2>
-            <p className="text-[#6688aa] text-lg leading-relaxed mb-6">
-              DNF was born in Germany with a mission that extends far beyond national borders. Fire does not respect boundaries — and neither does our commitment to protecting what matters.
-            </p>
-            <p className="text-[#6688aa] text-base leading-relaxed">
-              We envision a world where cities, forests and industrial zones are systematically prepared — where fire response does not start at ignition but long before it. DNF is the technology that makes that vision operational.
-            </p>
-          </div>
-
-          {/* Abstract globe */}
-          <div className="flex justify-center">
-            <div className="relative w-80 h-80">
-              {/* Outer ring */}
-              <div className="absolute inset-0 rounded-full border border-blue-900/20 animate-spin-slow" />
-              <div className="absolute inset-4 rounded-full border border-blue-900/10 animate-spin-slow" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
-
-              {/* Center globe */}
-              <div className="absolute inset-8 rounded-full flex items-center justify-center"
-                style={{
-                  background: "radial-gradient(ellipse at 35% 35%, #0a1535 0%, #030810 60%, #050c18 100%)",
-                  border: "1px solid rgba(26,111,255,0.2)",
-                  boxShadow: "0 0 60px rgba(26,111,255,0.08), inset 0 0 40px rgba(26,111,255,0.04)",
-                }}>
-
-                {/* Grid lines */}
-                <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 200 200">
-                  <ellipse cx="100" cy="100" rx="80" ry="80" fill="none" stroke="rgba(26,111,255,0.4)" strokeWidth="0.5"/>
-                  <ellipse cx="100" cy="100" rx="80" ry="40" fill="none" stroke="rgba(26,111,255,0.3)" strokeWidth="0.5"/>
-                  <ellipse cx="100" cy="100" rx="80" ry="20" fill="none" stroke="rgba(26,111,255,0.2)" strokeWidth="0.5"/>
-                  <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(26,111,255,0.3)" strokeWidth="0.5"/>
-                  <line x1="100" y1="20" x2="100" y2="180" stroke="rgba(26,111,255,0.3)" strokeWidth="0.5"/>
-                  <line x1="45" y1="30" x2="155" y2="170" stroke="rgba(26,111,255,0.2)" strokeWidth="0.5"/>
-                  <line x1="155" y1="30" x2="45" y2="170" stroke="rgba(26,111,255,0.2)" strokeWidth="0.5"/>
-                </svg>
-
-                <div className="text-center relative z-10">
-                  <div className="w-12 h-12 mx-auto mb-2 text-[#38b6ff]">
-                    <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10" />
-                      <line x1="2" y1="12" x2="22" y2="12" />
-                      <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10Z" />
-                    </svg>
-                  </div>
-                  <div className="text-xl font-black text-fire-gradient">Global</div>
-                  <div className="text-xs text-[#3a5a7a]">Fire Safety Network</div>
-                </div>
-              </div>
-
-              {/* Orbiting dots */}
-              {[0, 60, 120, 180, 240, 300].map((deg, i) => (
+            <div className="text-xs font-bold tracking-[0.25em] uppercase text-[#38b6ff] mb-5">
+              Deployment Regions
+            </div>
+            <div className="space-y-3">
+              {regions.map((r) => (
                 <div
-                  key={i}
-                  className="absolute w-3 h-3 rounded-full top-1/2 left-1/2"
+                  key={r.label}
+                  className="rounded-xl p-5 flex items-start gap-4"
                   style={{
-                    background: i % 2 === 0 ? "#1a6fff" : "#38b6ff",
-                    transform: `rotate(${deg}deg) translateX(130px) translateY(-50%)`,
-                    boxShadow: `0 0 8px ${i % 2 === 0 ? "#1a6fff" : "#38b6ff"}`,
-                    opacity: 0.6 + (i % 3) * 0.1,
+                    background: "rgba(4,14,32,0.8)",
+                    border: "1px solid rgba(26,111,255,0.13)",
+                    borderLeft: "2px solid #1a6fff",
                   }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Regions */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
-          {regions.map((r) => (
-            <div key={r.label} className="card-premium rounded-xl p-5 border border-blue-900/10 text-center">
-              <div className="text-lg font-bold text-[#e8f0ff] mb-1">{r.label}</div>
-              <div className={`inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full mb-2 ${
-                r.status === "Active" ? "text-[#38b6ff] bg-blue-950/30 border border-blue-900/30" :
-                r.status === "Expanding" ? "text-amber-400 bg-amber-950/30 border border-amber-900/30" :
-                "text-[#3a5a7a] bg-[#1a1a1a] border border-white/5"
-              }`}>
-                {r.status}
-              </div>
-              <div className="text-xs text-[#3a5a7a]">{r.count}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Timeline */}
-        <div>
-          <h3 className="text-xl font-bold text-[#e8f0ff] mb-8 text-center">Our Journey</h3>
-          <div className="relative">
-            <div className="absolute left-24 top-0 bottom-0 w-px bg-gradient-to-b from-blue-700/50 via-blue-600/20 to-transparent" />
-            <div className="space-y-6">
-              {milestones.map((m, i) => (
-                <div key={i} className="flex gap-6 items-start">
-                  <div className="w-20 text-right shrink-0">
-                    <span className="text-sm font-black text-fire-gradient">{m.year}</span>
+                >
+                  {/* Status badge */}
+                  <div className="shrink-0 pt-0.5">
+                    <span
+                      className="inline-block text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
+                      style={statusStyle(r.status)}
+                    >
+                      {r.status}
+                    </span>
                   </div>
-                  <div className="relative shrink-0 mt-1">
-                    <div className="w-3 h-3 rounded-full bg-[#1a6fff] relative z-10"
-                      style={{ boxShadow: "0 0 8px rgba(26,111,255,0.5)" }} />
-                  </div>
-                  <div className="flex-1 pt-0.5">
-                    <p className="text-sm text-[#6688aa]">{m.label}</p>
+                  <div className="flex-1">
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="text-sm font-bold text-[#e8f0ff]">{r.label}</span>
+                      <span className="text-xs text-[#3a5a7a]">— {r.count}</span>
+                    </div>
+                    <p className="text-xs text-[#6688aa] leading-relaxed">{r.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* RIGHT: 7-item milestone timeline */}
+          <div>
+            <div className="text-xs font-bold tracking-[0.25em] uppercase text-[#38b6ff] mb-5">
+              Our Journey
+            </div>
+            <div className="relative">
+              {/* Vertical timeline line */}
+              <div
+                className="absolute left-[72px] top-2 bottom-2 w-px"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, rgba(26,111,255,0.6), rgba(26,111,255,0.1))",
+                }}
+              />
+              <div className="space-y-5">
+                {milestones.map((m, i) => (
+                  <div key={i} className="flex gap-5 items-start">
+                    {/* Year */}
+                    <div className="w-16 text-right shrink-0 pt-0.5">
+                      <span className="text-sm font-black text-ice-gradient">{m.year}</span>
+                    </div>
+                    {/* Dot */}
+                    <div className="relative shrink-0 mt-1.5">
+                      <div
+                        className="w-3 h-3 rounded-full relative z-10"
+                        style={{
+                          background: "#1a6fff",
+                          boxShadow: "0 0 8px rgba(26,111,255,0.6)",
+                        }}
+                      />
+                    </div>
+                    {/* Label */}
+                    <div className="flex-1">
+                      <p className="text-sm text-[#6688aa] leading-relaxed">{m.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Global mission statement paragraph */}
+        <div
+          className="rounded-2xl p-8 text-center"
+          style={{
+            background: "rgba(4,14,32,0.6)",
+            border: "1px solid rgba(26,111,255,0.12)",
+          }}
+        >
+          <p className="text-lg font-bold text-[#e8f0ff] max-w-3xl mx-auto leading-relaxed">
+            We envision a world where cities, forests and industrial zones are systematically prepared —
+            where fire response does not start at ignition but{" "}
+            <span className="text-ice-gradient">long before it.</span>
+          </p>
+          <p className="text-[#6688aa] text-sm mt-3 max-w-2xl mx-auto leading-relaxed">
+            DNF is the technology that makes that vision operational. Each new partnership, each city
+            enrolled, each protected hectare of forest is one step closer to a world that does not lose
+            what is irreplaceable.
+          </p>
         </div>
       </div>
     </section>

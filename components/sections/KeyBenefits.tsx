@@ -1,6 +1,16 @@
+import React from "react";
+// KeyBenefits.tsx — Ice & Steel design — 2×3 dashboard metrics grid
 import { IconClock, IconFlame, IconPeople, IconPaw, IconLeaf, IconShield } from "@/components/Icons";
 
-const benefits = [
+interface Benefit {
+  Icon: (props: { className?: string }) => React.ReactElement;
+  title: string;
+  desc: string;
+  metric: string;
+  metricLabel: string;
+}
+
+const benefits: Benefit[] = [
   {
     Icon: IconClock,
     title: "Critical Time Advantage",
@@ -18,7 +28,7 @@ const benefits = [
   {
     Icon: IconPeople,
     title: "Human Safety",
-    desc: "Evacuation corridors stay open longer. Stairwells and exit pathways remain more viable. The human cost of fire events is reduced.",
+    desc: "Evacuation corridors stay open longer. Stairwells and exit pathways remain more viable. The human cost of fire events is measurably reduced.",
     metric: "↑80%",
     metricLabel: "safer evacuation viability",
   },
@@ -46,111 +56,101 @@ const benefits = [
 ];
 
 export default function KeyBenefits() {
-  const B0Icon = benefits[0].Icon;
-  const B1Icon = benefits[1].Icon;
-  const B5Icon = benefits[5].Icon;
-
   return (
     <section
       id="sustainability"
-      className="relative py-10 overflow-hidden"
-      style={{ background: "#03080f" }}
+      className="relative py-20 overflow-hidden"
+      style={{ background: "#020c1b" }}
     >
-      <div className="absolute right-0 top-0 bottom-0 w-80 pointer-events-none"
-        style={{ background: "linear-gradient(270deg, rgba(0,60,180,0.06) 0%, transparent 100%)" }} />
+      {/* Ambient glow right side */}
+      <div
+        className="absolute right-0 top-0 bottom-0 w-96 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(270deg, rgba(26,111,255,0.05) 0%, transparent 100%)",
+        }}
+      />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10">
-        <div className="mb-10">
-          <div className="flex items-start gap-10 flex-col lg:flex-row">
-            <div className="lg:w-1/2">
-              <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#1a6fff] mb-6">
-                Why DNF
-              </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight">
-                Measurable Benefits.<br />
-                <span className="text-fire-gradient">Real-World Impact.</span>
-              </h2>
-            </div>
-            <div className="lg:w-1/2 lg:pt-16">
-              <p className="text-[#6688aa] text-lg leading-relaxed">
-                DNF delivers quantifiable advantages across every dimension that matters in fire safety — time, safety, environmental impact, and financial protection. No trade-offs.
-              </p>
-            </div>
-          </div>
+        {/* Centered header */}
+        <div className="text-center mb-14">
+          <span className="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#38b6ff] mb-5">
+            Why DNF
+          </span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#e8f0ff] leading-tight mb-6">
+            Measurable Benefits.
+            <br />
+            <span className="text-ice-gradient">Real-World Impact.</span>
+          </h2>
+          <p className="text-[#6688aa] text-lg max-w-2xl mx-auto leading-relaxed">
+            DNF delivers quantifiable advantages across every dimension that matters in fire safety — time,
+            safety, environmental impact, and financial protection. No trade-offs.
+          </p>
         </div>
 
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 card-premium rounded-2xl p-10 border border-blue-900/10 relative overflow-hidden">
-              <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start">
-                <div>
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 text-[#1a6fff]"
-                    style={{ background: "rgba(26,111,255,0.08)", border: "1px solid rgba(26,111,255,0.2)" }}>
-                    <B0Icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="text-2xl font-black text-[#e8f0ff] mb-3">{benefits[0].title}</h3>
-                  <p className="text-[#6688aa] text-base leading-relaxed">{benefits[0].desc}</p>
+        {/* 2×3 equal metrics grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((b, i) => {
+            const BIcon = b.Icon;
+            return (
+              <div
+                key={i}
+                className="rounded-2xl p-7 flex flex-col group"
+                style={{
+                  background: "rgba(4,14,32,0.8)",
+                  border: "1px solid rgba(26,111,255,0.15)",
+                  borderTop: "2px solid #1a6fff",
+                }}
+              >
+                {/* Icon row */}
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-[#38b6ff]"
+                  style={{
+                    background: "rgba(26,111,255,0.08)",
+                    border: "1px solid rgba(26,111,255,0.2)",
+                  }}
+                >
+                  <BIcon className="w-6 h-6" />
                 </div>
-                <div className="shrink-0 text-center border border-blue-900/20 rounded-2xl p-6 min-w-[140px] bg-blue-950/10">
-                  <div className="text-3xl font-black text-fire-gradient">{benefits[0].metric}</div>
-                  <div className="text-xs text-[#3a5a7a] mt-2 leading-tight">{benefits[0].metricLabel}</div>
-                </div>
-              </div>
-            </div>
-            <div className="card-premium rounded-2xl p-7 border border-blue-900/10 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-[#1a6fff]"
-                  style={{ background: "rgba(26,111,255,0.08)", border: "1px solid rgba(26,111,255,0.2)" }}>
-                  <B1Icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-[#e8f0ff] mb-2">{benefits[1].title}</h3>
-                <p className="text-sm text-[#6688aa] leading-relaxed">{benefits[1].desc}</p>
-              </div>
-              <div className="mt-4 border-t border-blue-900/15 pt-4">
-                <div className="text-2xl font-black text-fire-gradient">{benefits[1].metric}</div>
-                <div className="text-xs text-[#3a5a7a]">{benefits[1].metricLabel}</div>
-              </div>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {benefits.slice(2, 5).map((b, i) => {
-              const BIcon = b.Icon;
-              return (
-                <div key={i} className="card-premium rounded-2xl p-7 border border-blue-900/10 flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-[#1a6fff]"
-                      style={{ background: "rgba(26,111,255,0.08)", border: "1px solid rgba(26,111,255,0.2)" }}>
-                      <BIcon className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-lg font-bold text-[#e8f0ff] mb-2">{b.title}</h3>
-                    <p className="text-sm text-[#6688aa] leading-relaxed">{b.desc}</p>
-                  </div>
-                  <div className="mt-4 border-t border-blue-900/15 pt-4">
-                    <div className="text-xl font-black text-fire-gradient">{b.metric}</div>
-                    <div className="text-xs text-[#3a5a7a]">{b.metricLabel}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                {/* Big metric */}
+                <div className="text-3xl font-black text-ice-gradient mb-1">{b.metric}</div>
+                <div className="text-xs text-[#3a5a7a] mb-5 tracking-wide">{b.metricLabel}</div>
 
-          <div className="card-premium rounded-2xl p-10 border border-blue-900/10 relative overflow-hidden">
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-1">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-[#1a6fff]"
-                  style={{ background: "rgba(26,111,255,0.08)", border: "1px solid rgba(26,111,255,0.2)" }}>
-                  <B5Icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-black text-[#e8f0ff] mb-3">{benefits[5].title}</h3>
-                <p className="text-[#6688aa] text-base leading-relaxed">{benefits[5].desc}</p>
+                {/* Divider */}
+                <div
+                  className="h-px w-full mb-5"
+                  style={{ background: "rgba(26,111,255,0.1)" }}
+                />
+
+                {/* Title & description */}
+                <h3 className="text-base font-bold text-[#e8f0ff] mb-2">{b.title}</h3>
+                <p className="text-sm text-[#6688aa] leading-relaxed flex-1">{b.desc}</p>
               </div>
-              <div className="shrink-0 text-center border border-blue-900/20 rounded-2xl p-6 min-w-[140px] bg-blue-950/10">
-                <div className="text-3xl font-black text-fire-gradient">{benefits[5].metric}</div>
-                <div className="text-xs text-[#3a5a7a] mt-2 leading-tight">{benefits[5].metricLabel}</div>
-              </div>
-            </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom summary bar */}
+        <div
+          className="mt-12 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6"
+          style={{
+            background: "rgba(4,14,32,0.6)",
+            border: "1px solid rgba(26,111,255,0.12)",
+          }}
+        >
+          <div>
+            <p className="text-lg font-bold text-[#e8f0ff]">
+              Six dimensions. One technology.{" "}
+              <span className="text-ice-gradient">Proven performance.</span>
+            </p>
+            <p className="text-sm text-[#6688aa] mt-1">
+              Every benefit is backed by independent laboratory testing and field demonstration data.
+            </p>
           </div>
+          <a href="#demonstrations" className="btn-ice px-6 py-3 rounded-full text-sm shrink-0">
+            View Test Data
+          </a>
         </div>
       </div>
     </section>
